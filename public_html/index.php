@@ -1,44 +1,44 @@
 <!DOCTYPE html>	
 <html lang="en">	
- <?php
-defined('SITE_ROOT')? null: define('SITE_ROOT',$_SERVER['DOCUMENT_ROOT']);
+    <?php
+    defined('SITE_ROOT')? null: define('SITE_ROOT',$_SERVER['DOCUMENT_ROOT']);
 
-include(SITE_ROOT.'/global/class.error_handler.php');
-$handler = new error_handler(NULL,1,1,'colin-h@dircon.co.uk',SITE_ROOT.'/global/error_logs/test.com.txt');
-set_error_handler(array(&$handler, "handler"));
-//
-    
-//include config
-require_once(SITE_ROOT.'/login/includes/config.php');
-// echo 'this is login php';
-//check if already logged in move to home page
-if( $user->is_logged_in() ){ header('location: login/memberpage.php'); } 
+    include(SITE_ROOT.'/global/class.error_handler.php');
+    $handler = new error_handler(NULL,1,1,'colin-h@dircon.co.uk',SITE_ROOT.'/global/error_logs/test.com.txt');
+    set_error_handler(array(&$handler, "handler"));
+    //
 
-////process login form if submitted
-//if(isset($_POST['submit'])){
-//    $username = $_POST['username'];
-//    $password = $_POST['password'];
-//
-//    if($user->login($username,$password)){ 
-//        $_SESSION['username']=$username;
-//        $_SESSION['memberid']=$user->getuserid($username);
-//        $_SESSION['fullname']=$user->getfullname($_SESSION['memberid']);
-//        $_SESSION['email']=$user->getemail($_SESSION['memberid']);
-//
-//        if($user->gettype($username)>1) {
-//
-//            header('Location: production.php');
-//            exit;
-//        } else {
-//            header('Location: memberpage.php');
-//            exit;
-//        }
-//    } else {
-//        $error[] = 'Wrong username or password or your account has not been activated.';
-//    }
-//
-//}//end if submit
-?>
+    //include config
+    require_once(SITE_ROOT.'/login/includes/config.php');
+    // echo 'this is login php';
+    //check if already logged in move to home page
+    if( $user->is_logged_in() ){ header('location: login/memberpage.php'); } 
+
+    ////process login form if submitted
+    if(isset($_POST['submit'])){
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+
+        if($user->login($username,$password)){ 
+            $_SESSION['username']=$username;
+            $_SESSION['memberid']=$user->getuserid($username);
+            $_SESSION['fullname']=$user->getfullname($_SESSION['memberid']);
+            $_SESSION['email']=$user->getemail($_SESSION['memberid']);
+
+            if($user->gettype($username)>1) {
+
+                header('Location: production.php');
+                exit;
+            } else {
+                header('Location: memberpage.php');
+                exit;
+            }
+        } else {
+            $error[] = 'Wrong username or password or your account has not been activated.';
+        }
+
+    }//end if submit
+    ?>
 
 
     <head>	
@@ -51,8 +51,8 @@ if( $user->is_logged_in() ){ header('location: login/memberpage.php'); }
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->	
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->	    <!--[if lt IE 9]>	
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></ script>	
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/ respond.min.js"></script>	    <![endif]-->	
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></ script>	
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/ respond.min.js"></script>	    <![endif]-->	
         <link rel="stylesheet" type="text/css" href="layout/style/index.css">
 
     </head>	
@@ -64,7 +64,7 @@ if( $user->is_logged_in() ){ header('location: login/memberpage.php'); }
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand kimage"><img src="images/shine.png" alt="Shine" style="height:26px;margin-top:0"></a>	
+                <a class="navbar-brand kimage"><img src="images/shine.png" alt="Shine" style="height:20px;margin-top:0"></a>	
             </div>	
 
             <div class="collapse navbar-collapse">	
@@ -73,6 +73,7 @@ if( $user->is_logged_in() ){ header('location: login/memberpage.php'); }
                     <li><a href="#details">About</a></li>	
                     <li><a href="#footer">Download The App</a></li>	
                     <li><a href="http://www.theshinemodel.com/blog/">Visit the blog</a></li>
+                    <li> <a class="btn btn-info-outline btn-sm" href="login/index.php">Sign Up! (please) </a></li>
 
                 </ul>	
                 <form class="navbar-form navbar-right" Method="post" action="/login/login.php">	
@@ -82,10 +83,14 @@ if( $user->is_logged_in() ){ header('location: login/memberpage.php'); }
                     <div class="form-group">	
                         <input name="password" type="password" placeholder="Password" class="form-control" />	
                     </div>	
-                    <button name="submit" type="submit" class="btn btn-success">Log In</ button>	
+
+                    <button name="submit" type="submit" class="btn btn-success">Log In</ button>
+
+
                 </form>	
 
             </div>	
+
         </div>	
         </div>
 
@@ -98,7 +103,7 @@ if( $user->is_logged_in() ){ header('location: login/memberpage.php'); }
 
 
         <!--Carousel-->
-        <div id="myCarousel" class="carousel slide carousel-fade" data-ride="carousel" data-interval="10000"><!-- If this doesn't work, paste this data-rider="carousel" after "carousel"-->
+        <div id="myCarousel" class="carousel slide carousel-fade" data-ride="carousel" data-interval="4000"><!-- If this doesn't work, paste this data-rider="carousel" after "carousel"-->
             <!--Indicators--> 
             <ol class="carousel-indicators">
                 <li data-target="#myCarousel" data-slide-to="0" ></li>
@@ -111,9 +116,6 @@ if( $user->is_logged_in() ){ header('location: login/memberpage.php'); }
             <div class="carousel-inner">
                 <div class="item active">
                     <img src="images/bg1.jpg" alt="Headphones" class="img-responsive">
-                    <div class="carousel-caption">
-                        <h3> Headphones </h3>
-                    </div>
 
                 </div>
 
@@ -163,21 +165,21 @@ if( $user->is_logged_in() ){ header('location: login/memberpage.php'); }
             <div class="col-md-4 marginTop">	
                 <h2><span class="glyphicon glyphicon-cloud"></span> Vision</h2>	
                 <p>To be the best you can be for the rest of your life. We believe Health is something you carry with you always and forever - not let's do a bit of health for the next month</p>	
-                <button class="btn btn-success marginTop">Sign Up! (please)</button>	
+                <a class="btn btn-success marginTop" href="login/index.php">Sign Up! (please)</a>	
 
             </div>	
 
             <div class="col-md-4 marginTop">	
                 <h2><span class="glyphicon glyphicon-music"></span> Mission</h2>	
                 <p>SHINE will educate, illuminate and empower people to live in a body that SHINES, to have mental and intellectual capcities that SHINE and to have comminication and relationships that SHINE. SHINE is to do just that. Our mission is to help people be the best they can be - physically, mentally, emotionally, spiritually for themselves and for all the precious people around them</p>	
-                <button class="btn btn-success marginTop">Sign Up!</button>	
+                <a class="btn btn-success marginTop" href="login/index.php">Sign Up!</a>
 
             </div>	
 
             <div class="col-md-4 marginTop">	
                 <h2><span class="glyphicon glyphicon-pencil"></span> Charity</h2>	
                 <p>SHINE is committed to education and enlightenment - and not just for people who can afford it. We are committed to using the product and knowledge, as well as a percentage of profits, to help and educate the next generations - they are the future and need the education not to repeat the mistakes of previous generations but more importantly to build on the incredible advances provided by previous generations</p>	
-                <button class="btn btn-success marginTop">Sign Up!</button>	
+                <a class="btn btn-success marginTop" href="login/index.php">Sign Up!</a>
 
             </div>	
 

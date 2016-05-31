@@ -1,0 +1,25 @@
+.bg-danger, .bg-success {
+	padding: 20px;
+	font-size: 20px;
+}
+
+a {
+	color: #7c87bf;
+	text-decoration: none;
+	
+}
+p.center {
+    text-align: center;
+    color: blue;
+}
+.backhome {
+	font-size: 20px;
+}
+.container { 
+			background-image:url("/images/tree.png");
+			height:1080px;
+			width:100%;
+			background-size:cover;	
+			background-position: center;
+			opacity:0.95;
+}

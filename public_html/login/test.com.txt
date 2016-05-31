@@ -1,0 +1,1472 @@
+time: 24 Apr 16 - 4:10:53 PM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/includes/config.php
+line: 35
+
+code: E_WARNING
+message: include(classes/user.php): failed to open stream: No such file or directory
+##################################################
+
+time: 24 Apr 16 - 4:10:53 PM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/includes/config.php
+line: 35
+
+code: E_WARNING
+message: include(classes/user.php): failed to open stream: No such file or directory
+##################################################
+
+time: 24 Apr 16 - 4:10:53 PM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/includes/config.php
+line: 35
+
+code: E_WARNING
+message: include(classes/user.php): failed to open stream: No such file or directory
+##################################################
+
+time: 24 Apr 16 - 4:10:53 PM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/includes/config.php
+line: 35
+
+code: E_WARNING
+message: include(): Failed opening 'classes/user.php' for inclusion (include_path='.:/usr/share/pear53:/usr/share/php:/usr/share/ZendFramework')
+##################################################
+
+time: 24 Apr 16 - 4:14:15 PM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/includes/config.php
+line: 35
+
+code: E_WARNING
+message: include(/classes/user.php): failed to open stream: No such file or directory
+##################################################
+
+time: 24 Apr 16 - 4:14:15 PM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/includes/config.php
+line: 35
+
+code: E_WARNING
+message: include(/classes/user.php): failed to open stream: No such file or directory
+##################################################
+
+time: 24 Apr 16 - 4:14:15 PM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/includes/config.php
+line: 35
+
+code: E_WARNING
+message: include(): Failed opening '/classes/user.php' for inclusion (include_path='.:/usr/share/pear53:/usr/share/php:/usr/share/ZendFramework')
+##################################################
+
+time: 24 Apr 16 - 4:18:20 PM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/includes/config.php
+line: 35
+
+code: E_WARNING
+message: include(../classes/user.php): failed to open stream: No such file or directory
+##################################################
+
+time: 24 Apr 16 - 4:18:20 PM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/includes/config.php
+line: 35
+
+code: E_WARNING
+message: include(../classes/user.php): failed to open stream: No such file or directory
+##################################################
+
+time: 24 Apr 16 - 4:18:20 PM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/includes/config.php
+line: 35
+
+code: E_WARNING
+message: include(../classes/user.php): failed to open stream: No such file or directory
+##################################################
+
+time: 24 Apr 16 - 4:18:20 PM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/includes/config.php
+line: 35
+
+code: E_WARNING
+message: include(): Failed opening '../classes/user.php' for inclusion (include_path='.:/usr/share/pear53:/usr/share/php:/usr/share/ZendFramework')
+##################################################
+
+time: 24 Apr 16 - 4:20:43 PM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/includes/config.php
+line: 35
+
+code: E_WARNING
+message: include(../classes/user.php): failed to open stream: No such file or directory
+##################################################
+
+time: 24 Apr 16 - 4:20:43 PM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/includes/config.php
+line: 35
+
+code: E_WARNING
+message: include(../classes/user.php): failed to open stream: No such file or directory
+##################################################
+
+time: 24 Apr 16 - 4:20:43 PM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/includes/config.php
+line: 35
+
+code: E_WARNING
+message: include(../classes/user.php): failed to open stream: No such file or directory
+##################################################
+
+time: 24 Apr 16 - 4:20:43 PM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/includes/config.php
+line: 35
+
+code: E_WARNING
+message: include(): Failed opening '../classes/user.php' for inclusion (include_path='.:/usr/share/pear53:/usr/share/php:/usr/share/ZendFramework')
+##################################################
+
+time: 24 Apr 16 - 4:20:44 PM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/includes/config.php
+line: 35
+
+code: E_WARNING
+message: include(../classes/user.php): failed to open stream: No such file or directory
+##################################################
+
+time: 24 Apr 16 - 4:20:44 PM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/includes/config.php
+line: 35
+
+code: E_WARNING
+message: include(../classes/user.php): failed to open stream: No such file or directory
+##################################################
+
+time: 24 Apr 16 - 4:20:44 PM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/includes/config.php
+line: 35
+
+code: E_WARNING
+message: include(../classes/user.php): failed to open stream: No such file or directory
+##################################################
+
+time: 24 Apr 16 - 4:20:44 PM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/includes/config.php
+line: 35
+
+code: E_WARNING
+message: include(): Failed opening '../classes/user.php' for inclusion (include_path='.:/usr/share/pear53:/usr/share/php:/usr/share/ZendFramework')
+##################################################
+
+time: 24 Apr 16 - 4:23:15 PM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/includes/config.php
+line: 35
+
+code: E_WARNING
+message: include(../classes/user.php): failed to open stream: No such file or directory
+##################################################
+
+time: 24 Apr 16 - 4:23:15 PM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/includes/config.php
+line: 35
+
+code: E_WARNING
+message: include(../classes/user.php): failed to open stream: No such file or directory
+##################################################
+
+time: 24 Apr 16 - 4:23:15 PM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/includes/config.php
+line: 35
+
+code: E_WARNING
+message: include(../classes/user.php): failed to open stream: No such file or directory
+##################################################
+
+time: 24 Apr 16 - 4:23:15 PM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/includes/config.php
+line: 35
+
+code: E_WARNING
+message: include(): Failed opening '../classes/user.php' for inclusion (include_path='.:/usr/share/pear53:/usr/share/php:/usr/share/ZendFramework')
+##################################################
+
+time: 24 Apr 16 - 4:23:18 PM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/includes/config.php
+line: 35
+
+code: E_WARNING
+message: include(../classes/user.php): failed to open stream: No such file or directory
+##################################################
+
+time: 24 Apr 16 - 4:23:18 PM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/includes/config.php
+line: 35
+
+code: E_WARNING
+message: include(../classes/user.php): failed to open stream: No such file or directory
+##################################################
+
+time: 24 Apr 16 - 4:23:18 PM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/includes/config.php
+line: 35
+
+code: E_WARNING
+message: include(../classes/user.php): failed to open stream: No such file or directory
+##################################################
+
+time: 24 Apr 16 - 4:23:18 PM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/includes/config.php
+line: 35
+
+code: E_WARNING
+message: include(): Failed opening '../classes/user.php' for inclusion (include_path='.:/usr/share/pear53:/usr/share/php:/usr/share/ZendFramework')
+##################################################
+
+time: 24 Apr 16 - 4:23:21 PM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/includes/config.php
+line: 35
+
+code: E_WARNING
+message: include(../classes/user.php): failed to open stream: No such file or directory
+##################################################
+
+time: 24 Apr 16 - 4:23:21 PM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/includes/config.php
+line: 35
+
+code: E_WARNING
+message: include(../classes/user.php): failed to open stream: No such file or directory
+##################################################
+
+time: 24 Apr 16 - 4:23:21 PM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/includes/config.php
+line: 35
+
+code: E_WARNING
+message: include(../classes/user.php): failed to open stream: No such file or directory
+##################################################
+
+time: 24 Apr 16 - 4:23:21 PM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/includes/config.php
+line: 35
+
+code: E_WARNING
+message: include(): Failed opening '../classes/user.php' for inclusion (include_path='.:/usr/share/pear53:/usr/share/php:/usr/share/ZendFramework')
+##################################################
+
+time: 24 Apr 16 - 4:27:03 PM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/includes/config.php
+line: 35
+
+code: E_WARNING
+message: include(../classes/user.php): failed to open stream: No such file or directory
+##################################################
+
+time: 24 Apr 16 - 4:27:03 PM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/includes/config.php
+line: 35
+
+code: E_WARNING
+message: include(../classes/user.php): failed to open stream: No such file or directory
+##################################################
+
+time: 24 Apr 16 - 4:27:03 PM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/includes/config.php
+line: 35
+
+code: E_WARNING
+message: include(../classes/user.php): failed to open stream: No such file or directory
+##################################################
+
+time: 24 Apr 16 - 4:27:03 PM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/includes/config.php
+line: 35
+
+code: E_WARNING
+message: include(): Failed opening '../classes/user.php' for inclusion (include_path='.:/usr/share/pear53:/usr/share/php:/usr/share/ZendFramework')
+##################################################
+
+time: 24 Apr 16 - 5:59:39 PM (BST)
+file: /home/sites/theshinemodel.com/public_html/index.php
+line: 6
+
+code: E_WARNING
+message: require(/login/includes/config.php): failed to open stream: No such file or directory
+##################################################
+
+time: 24 Apr 16 - 5:59:39 PM (BST)
+file: /home/sites/theshinemodel.com/public_html/index.php
+line: 6
+
+code: E_WARNING
+message: require(/login/includes/config.php): failed to open stream: No such file or directory
+##################################################
+
+time: 24 Apr 16 - 6:05:35 PM (BST)
+file: /home/sites/theshinemodel.com/public_html/index.php
+line: 6
+
+code: E_WARNING
+message: require(/login/includes/config.php): failed to open stream: No such file or directory
+##################################################
+
+time: 24 Apr 16 - 6:05:35 PM (BST)
+file: /home/sites/theshinemodel.com/public_html/index.php
+line: 6
+
+code: E_WARNING
+message: require(/login/includes/config.php): failed to open stream: No such file or directory
+##################################################
+
+time: 24 Apr 16 - 6:20:44 PM (BST)
+file: /home/sites/theshinemodel.com/public_html/index.php
+line: 8
+
+code: E_WARNING
+message: require(/login/includes/config.php): failed to open stream: No such file or directory
+##################################################
+
+time: 24 Apr 16 - 6:20:44 PM (BST)
+file: /home/sites/theshinemodel.com/public_html/index.php
+line: 8
+
+code: E_WARNING
+message: require(/login/includes/config.php): failed to open stream: No such file or directory
+##################################################
+
+time: 24 Apr 16 - 6:46:59 PM (BST)
+file: /home/sites/theshinemodel.com/public_html/index.php
+line: 8
+
+code: E_WARNING
+message: require(/login/includes/config.php): failed to open stream: No such file or directory
+##################################################
+
+time: 24 Apr 16 - 6:46:59 PM (BST)
+file: /home/sites/theshinemodel.com/public_html/index.php
+line: 8
+
+code: E_WARNING
+message: require(/login/includes/config.php): failed to open stream: No such file or directory
+##################################################
+
+time: 25 Apr 16 - 6:53:52 AM (BST)
+file: /home/sites/theshinemodel.com/public_html/index.php
+line: 8
+
+code: E_WARNING
+message: require(/login/includes/config.php): failed to open stream: No such file or directory
+##################################################
+
+time: 25 Apr 16 - 6:53:52 AM (BST)
+file: /home/sites/theshinemodel.com/public_html/index.php
+line: 8
+
+code: E_WARNING
+message: require(/login/includes/config.php): failed to open stream: No such file or directory
+##################################################
+
+time: 25 Apr 16 - 7:05:08 AM (BST)
+file: /home/sites/theshinemodel.com/public_html/index.php
+line: 8
+
+code: E_WARNING
+message: require(/login/includes/config.php): failed to open stream: No such file or directory
+##################################################
+
+time: 25 Apr 16 - 7:05:08 AM (BST)
+file: /home/sites/theshinemodel.com/public_html/index.php
+line: 8
+
+code: E_WARNING
+message: require(/login/includes/config.php): failed to open stream: No such file or directory
+##################################################
+
+time: 25 Apr 16 - 7:05:11 AM (BST)
+file: /home/sites/theshinemodel.com/public_html/index.php
+line: 8
+
+code: E_WARNING
+message: require(/login/includes/config.php): failed to open stream: No such file or directory
+##################################################
+
+time: 25 Apr 16 - 7:05:11 AM (BST)
+file: /home/sites/theshinemodel.com/public_html/index.php
+line: 8
+
+code: E_WARNING
+message: require(/login/includes/config.php): failed to open stream: No such file or directory
+##################################################
+
+time: 25 Apr 16 - 7:17:15 AM (BST)
+file: /home/sites/theshinemodel.com/public_html/index.php
+line: 8
+
+code: E_WARNING
+message: require(/login/includes/config.php): failed to open stream: No such file or directory
+##################################################
+
+time: 25 Apr 16 - 7:17:15 AM (BST)
+file: /home/sites/theshinemodel.com/public_html/index.php
+line: 8
+
+code: E_WARNING
+message: require(/login/includes/config.php): failed to open stream: No such file or directory
+##################################################
+
+time: 25 Apr 16 - 7:17:21 AM (BST)
+file: /home/sites/theshinemodel.com/public_html/index.php
+line: 8
+
+code: E_WARNING
+message: require(/login/includes/config.php): failed to open stream: No such file or directory
+##################################################
+
+time: 25 Apr 16 - 7:17:21 AM (BST)
+file: /home/sites/theshinemodel.com/public_html/index.php
+line: 8
+
+code: E_WARNING
+message: require(/login/includes/config.php): failed to open stream: No such file or directory
+##################################################
+
+time: 25 Apr 16 - 7:18:10 AM (BST)
+file: /home/sites/theshinemodel.com/public_html/index.php
+line: 8
+
+code: E_WARNING
+message: require(/login/includes/config.php): failed to open stream: No such file or directory
+##################################################
+
+time: 25 Apr 16 - 7:18:10 AM (BST)
+file: /home/sites/theshinemodel.com/public_html/index.php
+line: 8
+
+code: E_WARNING
+message: require(/login/includes/config.php): failed to open stream: No such file or directory
+##################################################
+
+time: 25 Apr 16 - 7:21:24 AM (BST)
+file: /home/sites/theshinemodel.com/public_html/index.php
+line: 8
+
+code: E_WARNING
+message: require(/login/includes/config.php): failed to open stream: No such file or directory
+##################################################
+
+time: 25 Apr 16 - 7:21:24 AM (BST)
+file: /home/sites/theshinemodel.com/public_html/index.php
+line: 8
+
+code: E_WARNING
+message: require(/login/includes/config.php): failed to open stream: No such file or directory
+##################################################
+
+time: 25 Apr 16 - 7:21:33 AM (BST)
+file: /home/sites/theshinemodel.com/public_html/index.php
+line: 8
+
+code: E_WARNING
+message: require(/login/includes/config.php): failed to open stream: No such file or directory
+##################################################
+
+time: 25 Apr 16 - 7:21:33 AM (BST)
+file: /home/sites/theshinemodel.com/public_html/index.php
+line: 8
+
+code: E_WARNING
+message: require(/login/includes/config.php): failed to open stream: No such file or directory
+##################################################
+
+time: 25 Apr 16 - 7:21:47 AM (BST)
+file: /home/sites/theshinemodel.com/public_html/index.php
+line: 8
+
+code: E_WARNING
+message: require(/login/includes/config.php): failed to open stream: No such file or directory
+##################################################
+
+time: 25 Apr 16 - 7:21:47 AM (BST)
+file: /home/sites/theshinemodel.com/public_html/index.php
+line: 8
+
+code: E_WARNING
+message: require(/login/includes/config.php): failed to open stream: No such file or directory
+##################################################
+
+time: 25 Apr 16 - 7:21:51 AM (BST)
+file: /home/sites/theshinemodel.com/public_html/index.php
+line: 8
+
+code: E_WARNING
+message: require(/login/includes/config.php): failed to open stream: No such file or directory
+##################################################
+
+time: 25 Apr 16 - 7:21:51 AM (BST)
+file: /home/sites/theshinemodel.com/public_html/index.php
+line: 8
+
+code: E_WARNING
+message: require(/login/includes/config.php): failed to open stream: No such file or directory
+##################################################
+
+time: 25 Apr 16 - 7:28:18 AM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/includes/config.php
+line: 35
+
+code: E_WARNING
+message: include(../classes/user.php): failed to open stream: No such file or directory
+##################################################
+
+time: 25 Apr 16 - 7:28:18 AM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/includes/config.php
+line: 35
+
+code: E_WARNING
+message: include(../classes/user.php): failed to open stream: No such file or directory
+##################################################
+
+time: 25 Apr 16 - 7:28:18 AM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/includes/config.php
+line: 35
+
+code: E_WARNING
+message: include(../classes/user.php): failed to open stream: No such file or directory
+##################################################
+
+time: 25 Apr 16 - 7:28:18 AM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/includes/config.php
+line: 35
+
+code: E_WARNING
+message: include(): Failed opening '../classes/user.php' for inclusion (include_path='.:/usr/share/pear53:/usr/share/php:/usr/share/ZendFramework')
+##################################################
+
+time: 25 Apr 16 - 7:32:33 AM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/includes/config.php
+line: 35
+
+code: E_WARNING
+message: include(/classes/user.php): failed to open stream: No such file or directory
+##################################################
+
+time: 25 Apr 16 - 7:32:33 AM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/includes/config.php
+line: 35
+
+code: E_WARNING
+message: include(/classes/user.php): failed to open stream: No such file or directory
+##################################################
+
+time: 25 Apr 16 - 7:32:33 AM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/includes/config.php
+line: 35
+
+code: E_WARNING
+message: include(): Failed opening '/classes/user.php' for inclusion (include_path='.:/usr/share/pear53:/usr/share/php:/usr/share/ZendFramework')
+##################################################
+
+time: 25 Apr 16 - 7:39:36 AM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/includes/config.php
+line: 35
+
+code: E_WARNING
+message: include(/classes/user.php): failed to open stream: No such file or directory
+##################################################
+
+time: 25 Apr 16 - 7:39:36 AM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/includes/config.php
+line: 35
+
+code: E_WARNING
+message: include(/classes/user.php): failed to open stream: No such file or directory
+##################################################
+
+time: 25 Apr 16 - 7:39:36 AM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/includes/config.php
+line: 35
+
+code: E_WARNING
+message: include(): Failed opening '/classes/user.php' for inclusion (include_path='.:/usr/share/pear53:/usr/share/php:/usr/share/ZendFramework')
+##################################################
+
+time: 25 Apr 16 - 7:57:13 AM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/includes/config.php
+line: 36
+
+code: E_WARNING
+message: include(): http:// wrapper is disabled in the server configuration by allow_url_include=0
+##################################################
+
+time: 25 Apr 16 - 7:57:13 AM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/includes/config.php
+line: 36
+
+code: E_WARNING
+message: include(http://www.theshinemodel.com/login//classes/user.php): failed to open stream: no suitable wrapper could be found
+##################################################
+
+time: 25 Apr 16 - 7:57:13 AM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/includes/config.php
+line: 36
+
+code: E_WARNING
+message: include(): http:// wrapper is disabled in the server configuration by allow_url_include=0
+##################################################
+
+time: 25 Apr 16 - 7:57:13 AM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/includes/config.php
+line: 36
+
+code: E_WARNING
+message: include(http://www.theshinemodel.com/login//classes/user.php): failed to open stream: no suitable wrapper could be found
+##################################################
+
+time: 25 Apr 16 - 7:57:13 AM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/includes/config.php
+line: 36
+
+code: E_WARNING
+message: include(): Failed opening 'http://www.theshinemodel.com/login//classes/user.php' for inclusion (include_path='.:/usr/share/pear53:/usr/share/php:/usr/share/ZendFramework')
+##################################################
+
+time: 25 Apr 16 - 8:13:34 AM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/includes/config.php
+line: 36
+
+code: E_WARNING
+message: include(/home/sites/theshinemodel.com/public_html/login/includes/classes/user.php): failed to open stream: No such file or directory
+##################################################
+
+time: 25 Apr 16 - 8:13:34 AM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/includes/config.php
+line: 36
+
+code: E_WARNING
+message: include(/home/sites/theshinemodel.com/public_html/login/includes/classes/user.php): failed to open stream: No such file or directory
+##################################################
+
+time: 25 Apr 16 - 8:13:34 AM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/includes/config.php
+line: 36
+
+code: E_WARNING
+message: include(): Failed opening '/home/sites/theshinemodel.com/public_html/login/includes/classes/user.php' for inclusion (include_path='.:/usr/share/pear53:/usr/share/php:/usr/share/ZendFramework')
+##################################################
+
+time: 25 Apr 16 - 9:12:51 AM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/includes/config.php
+line: 36
+
+code: E_WARNING
+message: include(/home/sites/theshinemodel.com/public_html/login/includes/classes/user.php): failed to open stream: No such file or directory
+##################################################
+
+time: 25 Apr 16 - 9:12:51 AM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/includes/config.php
+line: 36
+
+code: E_WARNING
+message: include(/home/sites/theshinemodel.com/public_html/login/includes/classes/user.php): failed to open stream: No such file or directory
+##################################################
+
+time: 25 Apr 16 - 9:12:51 AM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/includes/config.php
+line: 36
+
+code: E_WARNING
+message: include(): Failed opening '/home/sites/theshinemodel.com/public_html/login/includes/classes/user.php' for inclusion (include_path='.:/usr/share/pear53:/usr/share/php:/usr/share/ZendFramework')
+##################################################
+
+time: 25 Apr 16 - 9:16:04 AM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/includes/config.php
+line: 36
+
+code: E_WARNING
+message: include(/home/sites/theshinemodel.com/public_html/login/includes/classes/user.php): failed to open stream: No such file or directory
+##################################################
+
+time: 25 Apr 16 - 9:16:04 AM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/includes/config.php
+line: 36
+
+code: E_WARNING
+message: include(/home/sites/theshinemodel.com/public_html/login/includes/classes/user.php): failed to open stream: No such file or directory
+##################################################
+
+time: 25 Apr 16 - 9:16:04 AM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/includes/config.php
+line: 36
+
+code: E_WARNING
+message: include(): Failed opening '/home/sites/theshinemodel.com/public_html/login/includes/classes/user.php' for inclusion (include_path='.:/usr/share/pear53:/usr/share/php:/usr/share/ZendFramework')
+##################################################
+
+time: 25 Apr 16 - 9:23:59 AM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/includes/config.php
+line: 36
+
+code: E_WARNING
+message: include(/home/sites/theshinemodel.com/public_html/login/includes/classes/user.php): failed to open stream: No such file or directory
+##################################################
+
+time: 25 Apr 16 - 9:23:59 AM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/includes/config.php
+line: 36
+
+code: E_WARNING
+message: include(/home/sites/theshinemodel.com/public_html/login/includes/classes/user.php): failed to open stream: No such file or directory
+##################################################
+
+time: 25 Apr 16 - 9:23:59 AM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/includes/config.php
+line: 36
+
+code: E_WARNING
+message: include(): Failed opening '/home/sites/theshinemodel.com/public_html/login/includes/classes/user.php' for inclusion (include_path='.:/usr/share/pear53:/usr/share/php:/usr/share/ZendFramework')
+##################################################
+
+time: 25 Apr 16 - 9:24:04 AM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/includes/config.php
+line: 36
+
+code: E_WARNING
+message: include(/home/sites/theshinemodel.com/public_html/login/includes/classes/user.php): failed to open stream: No such file or directory
+##################################################
+
+time: 25 Apr 16 - 9:24:04 AM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/includes/config.php
+line: 36
+
+code: E_WARNING
+message: include(/home/sites/theshinemodel.com/public_html/login/includes/classes/user.php): failed to open stream: No such file or directory
+##################################################
+
+time: 25 Apr 16 - 9:24:04 AM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/includes/config.php
+line: 36
+
+code: E_WARNING
+message: include(): Failed opening '/home/sites/theshinemodel.com/public_html/login/includes/classes/user.php' for inclusion (include_path='.:/usr/share/pear53:/usr/share/php:/usr/share/ZendFramework')
+##################################################
+
+time: 25 Apr 16 - 9:24:45 AM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/includes/config.php
+line: 36
+
+code: E_WARNING
+message: include(/home/sites/theshinemodel.com/public_html/login/includes/classes/user.php): failed to open stream: No such file or directory
+##################################################
+
+time: 25 Apr 16 - 9:24:45 AM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/includes/config.php
+line: 36
+
+code: E_WARNING
+message: include(/home/sites/theshinemodel.com/public_html/login/includes/classes/user.php): failed to open stream: No such file or directory
+##################################################
+
+time: 25 Apr 16 - 9:24:45 AM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/includes/config.php
+line: 36
+
+code: E_WARNING
+message: include(): Failed opening '/home/sites/theshinemodel.com/public_html/login/includes/classes/user.php' for inclusion (include_path='.:/usr/share/pear53:/usr/share/php:/usr/share/ZendFramework')
+##################################################
+
+time: 25 Apr 16 - 9:25:51 AM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/includes/config.php
+line: 36
+
+code: E_WARNING
+message: include(/home/sites/theshinemodel.com/public_html/login/includes/classes/user.php): failed to open stream: No such file or directory
+##################################################
+
+time: 25 Apr 16 - 9:25:51 AM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/includes/config.php
+line: 36
+
+code: E_WARNING
+message: include(/home/sites/theshinemodel.com/public_html/login/includes/classes/user.php): failed to open stream: No such file or directory
+##################################################
+
+time: 25 Apr 16 - 9:25:51 AM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/includes/config.php
+line: 36
+
+code: E_WARNING
+message: include(): Failed opening '/home/sites/theshinemodel.com/public_html/login/includes/classes/user.php' for inclusion (include_path='.:/usr/share/pear53:/usr/share/php:/usr/share/ZendFramework')
+##################################################
+
+time: 25 Apr 16 - 9:27:25 AM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/includes/config.php
+line: 36
+
+code: E_WARNING
+message: include(/home/sites/theshinemodel.com/public_html/classes/user.php): failed to open stream: No such file or directory
+##################################################
+
+time: 25 Apr 16 - 9:27:25 AM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/includes/config.php
+line: 36
+
+code: E_WARNING
+message: include(/home/sites/theshinemodel.com/public_html/classes/user.php): failed to open stream: No such file or directory
+##################################################
+
+time: 25 Apr 16 - 9:27:25 AM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/includes/config.php
+line: 36
+
+code: E_WARNING
+message: include(): Failed opening '/home/sites/theshinemodel.com/public_html/classes/user.php' for inclusion (include_path='.:/usr/share/pear53:/usr/share/php:/usr/share/ZendFramework')
+##################################################
+
+time: 25 Apr 16 - 9:27:29 AM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/includes/config.php
+line: 36
+
+code: E_WARNING
+message: include(/home/sites/theshinemodel.com/public_html/classes/user.php): failed to open stream: No such file or directory
+##################################################
+
+time: 25 Apr 16 - 9:27:29 AM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/includes/config.php
+line: 36
+
+code: E_WARNING
+message: include(/home/sites/theshinemodel.com/public_html/classes/user.php): failed to open stream: No such file or directory
+##################################################
+
+time: 25 Apr 16 - 9:27:29 AM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/includes/config.php
+line: 36
+
+code: E_WARNING
+message: include(): Failed opening '/home/sites/theshinemodel.com/public_html/classes/user.php' for inclusion (include_path='.:/usr/share/pear53:/usr/share/php:/usr/share/ZendFramework')
+##################################################
+
+time: 25 Apr 16 - 9:29:20 AM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/includes/config.php
+line: 36
+
+code: E_WARNING
+message: include(/home/sites/theshinemodel.com/public_html/classes/user.php): failed to open stream: No such file or directory
+##################################################
+
+time: 25 Apr 16 - 9:29:20 AM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/includes/config.php
+line: 36
+
+code: E_WARNING
+message: include(/home/sites/theshinemodel.com/public_html/classes/user.php): failed to open stream: No such file or directory
+##################################################
+
+time: 25 Apr 16 - 9:29:20 AM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/includes/config.php
+line: 36
+
+code: E_WARNING
+message: include(): Failed opening '/home/sites/theshinemodel.com/public_html/classes/user.php' for inclusion (include_path='.:/usr/share/pear53:/usr/share/php:/usr/share/ZendFramework')
+##################################################
+
+time: 25 Apr 16 - 9:30:36 AM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/includes/config.php
+line: 36
+
+code: E_WARNING
+message: include(/home/sites/theshinemodel.com/public_htmllogin/classes/user.php): failed to open stream: No such file or directory
+##################################################
+
+time: 25 Apr 16 - 9:30:36 AM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/includes/config.php
+line: 36
+
+code: E_WARNING
+message: include(/home/sites/theshinemodel.com/public_htmllogin/classes/user.php): failed to open stream: No such file or directory
+##################################################
+
+time: 25 Apr 16 - 9:30:36 AM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/includes/config.php
+line: 36
+
+code: E_WARNING
+message: include(): Failed opening '/home/sites/theshinemodel.com/public_htmllogin/classes/user.php' for inclusion (include_path='.:/usr/share/pear53:/usr/share/php:/usr/share/ZendFramework')
+##################################################
+
+time: 25 Apr 16 - 9:39:56 AM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/includes/config.php
+line: 36
+
+code: E_WARNING
+message: include(/home/sites/theshinemodel.com/public_html/login/login/classes/user.php): failed to open stream: No such file or directory
+##################################################
+
+time: 25 Apr 16 - 9:39:56 AM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/includes/config.php
+line: 36
+
+code: E_WARNING
+message: include(/home/sites/theshinemodel.com/public_html/login/login/classes/user.php): failed to open stream: No such file or directory
+##################################################
+
+time: 25 Apr 16 - 9:39:56 AM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/includes/config.php
+line: 36
+
+code: E_WARNING
+message: include(): Failed opening '/home/sites/theshinemodel.com/public_html/login/login/classes/user.php' for inclusion (include_path='.:/usr/share/pear53:/usr/share/php:/usr/share/ZendFramework')
+##################################################
+
+time: 25 Apr 16 - 9:40:09 AM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/includes/config.php
+line: 36
+
+code: E_WARNING
+message: include(/home/sites/theshinemodel.com/public_html/login/login/classes/user.php): failed to open stream: No such file or directory
+##################################################
+
+time: 25 Apr 16 - 9:40:09 AM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/includes/config.php
+line: 36
+
+code: E_WARNING
+message: include(/home/sites/theshinemodel.com/public_html/login/login/classes/user.php): failed to open stream: No such file or directory
+##################################################
+
+time: 25 Apr 16 - 9:40:09 AM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/includes/config.php
+line: 36
+
+code: E_WARNING
+message: include(): Failed opening '/home/sites/theshinemodel.com/public_html/login/login/classes/user.php' for inclusion (include_path='.:/usr/share/pear53:/usr/share/php:/usr/share/ZendFramework')
+##################################################
+
+time: 25 Apr 16 - 9:40:30 AM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/includes/config.php
+line: 36
+
+code: E_WARNING
+message: include(/home/sites/theshinemodel.com/public_html/login/login/classes/user.php): failed to open stream: No such file or directory
+##################################################
+
+time: 25 Apr 16 - 9:40:30 AM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/includes/config.php
+line: 36
+
+code: E_WARNING
+message: include(/home/sites/theshinemodel.com/public_html/login/login/classes/user.php): failed to open stream: No such file or directory
+##################################################
+
+time: 25 Apr 16 - 9:40:30 AM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/includes/config.php
+line: 36
+
+code: E_WARNING
+message: include(): Failed opening '/home/sites/theshinemodel.com/public_html/login/login/classes/user.php' for inclusion (include_path='.:/usr/share/pear53:/usr/share/php:/usr/share/ZendFramework')
+##################################################
+
+time: 25 Apr 16 - 10:11:43 AM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/memberpage.php
+line: 7
+
+code: E_WARNING
+message: require(login/includes/config.php): failed to open stream: No such file or directory
+##################################################
+
+time: 25 Apr 16 - 10:11:43 AM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/memberpage.php
+line: 7
+
+code: E_WARNING
+message: require(login/includes/config.php): failed to open stream: No such file or directory
+##################################################
+
+time: 25 Apr 16 - 10:11:43 AM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/memberpage.php
+line: 7
+
+code: E_WARNING
+message: require(login/includes/config.php): failed to open stream: No such file or directory
+##################################################
+
+time: 25 Apr 16 - 10:12:09 AM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/memberpage.php
+line: 7
+
+code: E_WARNING
+message: require(login/includes/config.php): failed to open stream: No such file or directory
+##################################################
+
+time: 25 Apr 16 - 10:12:09 AM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/memberpage.php
+line: 7
+
+code: E_WARNING
+message: require(login/includes/config.php): failed to open stream: No such file or directory
+##################################################
+
+time: 25 Apr 16 - 10:12:09 AM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/memberpage.php
+line: 7
+
+code: E_WARNING
+message: require(login/includes/config.php): failed to open stream: No such file or directory
+##################################################
+
+time: 25 Apr 16 - 10:16:44 AM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/memberpage.php
+line: 7
+
+code: E_WARNING
+message: require(login/includes/config.php): failed to open stream: No such file or directory
+##################################################
+
+time: 25 Apr 16 - 10:16:44 AM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/memberpage.php
+line: 7
+
+code: E_WARNING
+message: require(login/includes/config.php): failed to open stream: No such file or directory
+##################################################
+
+time: 25 Apr 16 - 10:16:44 AM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/memberpage.php
+line: 7
+
+code: E_WARNING
+message: require(login/includes/config.php): failed to open stream: No such file or directory
+##################################################
+
+time: 25 Apr 16 - 10:16:47 AM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/memberpage.php
+line: 7
+
+code: E_WARNING
+message: require(login/includes/config.php): failed to open stream: No such file or directory
+##################################################
+
+time: 25 Apr 16 - 10:16:47 AM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/memberpage.php
+line: 7
+
+code: E_WARNING
+message: require(login/includes/config.php): failed to open stream: No such file or directory
+##################################################
+
+time: 25 Apr 16 - 10:16:47 AM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/memberpage.php
+line: 7
+
+code: E_WARNING
+message: require(login/includes/config.php): failed to open stream: No such file or directory
+##################################################
+
+time: 25 Apr 16 - 10:18:58 AM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/memberpage.php
+line: 11
+
+code: E_WARNING
+message: require_once(/home/sites/theshinemodel.com/public_html/login/classes/shine_email.php): failed to open stream: No such file or directory
+##################################################
+
+time: 25 Apr 16 - 10:21:04 AM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/memberpage.php
+line: 11
+
+code: E_WARNING
+message: require(/home/sites/theshinemodel.com/public_html/login/classes/shine_email.php): failed to open stream: No such file or directory
+##################################################
+
+time: 25 Apr 16 - 10:21:04 AM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/memberpage.php
+line: 11
+
+code: E_WARNING
+message: require(/home/sites/theshinemodel.com/public_html/login/classes/shine_email.php): failed to open stream: No such file or directory
+##################################################
+
+time: 25 Apr 16 - 10:30:39 AM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/memberpage.php
+line: 11
+
+code: E_WARNING
+message: require_once(/home/sites/theshinemodel.com/public_html/login/classes/shine_email.php): failed to open stream: No such file or directory
+##################################################
+
+time: 25 Apr 16 - 10:31:13 AM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/memberpage.php
+line: 10
+
+code: E_WARNING
+message: require(/home/sites/theshinemodel.com/public_htmllogin/includes/config.php): failed to open stream: No such file or directory
+##################################################
+
+time: 25 Apr 16 - 10:31:13 AM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/memberpage.php
+line: 10
+
+code: E_WARNING
+message: require(/home/sites/theshinemodel.com/public_htmllogin/includes/config.php): failed to open stream: No such file or directory
+##################################################
+
+time: 25 Apr 16 - 10:32:25 AM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/memberpage.php
+line: 11
+
+code: E_WARNING
+message: require_once(classes/shine_email.php): failed to open stream: No such file or directory
+##################################################
+
+time: 25 Apr 16 - 12:10:57 PM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/memberpage.php
+line: 10
+
+code: E_WARNING
+message: require(/home/sites/theshinemodel.com/public_html/includes/config.php): failed to open stream: No such file or directory
+##################################################
+
+time: 25 Apr 16 - 12:10:57 PM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/memberpage.php
+line: 10
+
+code: E_WARNING
+message: require(/home/sites/theshinemodel.com/public_html/includes/config.php): failed to open stream: No such file or directory
+##################################################
+
+time: 25 Apr 16 - 12:14:06 PM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/memberpage.php
+line: 11
+
+code: E_WARNING
+message: require_once(/home/sites/theshinemodel.com/public_html/login/classes/shine_email.php): failed to open stream: No such file or directory
+##################################################
+
+time: 25 Apr 16 - 12:14:16 PM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/memberpage.php
+line: 11
+
+code: E_WARNING
+message: require_once(/home/sites/theshinemodel.com/public_html/login/classes/shine_email.php): failed to open stream: No such file or directory
+##################################################
+
+time: 25 Apr 16 - 12:54:19 PM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/memberpage.php
+line: 182
+
+code: E_NOTICE
+message: Undefined index: fullname
+##################################################
+
+time: 25 Apr 16 - 12:54:19 PM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/memberpage.php
+line: 201
+
+code: E_NOTICE
+message: Undefined index: username
+##################################################
+
+time: 26 Apr 16 - 11:34:51 AM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/memberpage_bak.php
+line: 180
+
+code: E_NOTICE
+message: Undefined index: username
+##################################################
+
+time: 26 Apr 16 - 11:34:51 AM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/memberpage_bak.php
+line: 198
+
+code: E_NOTICE
+message: Undefined index: username
+##################################################
+
+time: 26 Apr 16 - 11:35:33 AM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/memberpage.php
+line: 45
+
+code: E_NOTICE
+message: Undefined index: username
+##################################################
+
+time: 26 Apr 16 - 11:36:49 AM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/memberpage.php
+line: 45
+
+code: E_NOTICE
+message: Undefined index: username
+##################################################
+
+time: 26 Apr 16 - 11:38:14 AM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/memberpage.php
+line: 45
+
+code: E_NOTICE
+message: Undefined index: username
+##################################################
+
+time: 26 Apr 16 - 11:38:28 AM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/memberpage.php
+line: 45
+
+code: E_NOTICE
+message: Undefined index: username
+##################################################
+
+time: 26 Apr 16 - 11:39:10 AM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/memberpage.php
+line: 45
+
+code: E_NOTICE
+message: Undefined index: username
+##################################################
+
+time: 26 Apr 16 - 11:39:21 AM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/memberpage_bak.php
+line: 184
+
+code: E_NOTICE
+message: Undefined index: username
+##################################################
+
+time: 26 Apr 16 - 11:39:21 AM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/memberpage_bak.php
+line: 202
+
+code: E_NOTICE
+message: Undefined index: username
+##################################################
+
+time: 26 Apr 16 - 12:33:26 PM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/memberpage_bak.php
+line: 184
+
+code: E_NOTICE
+message: Undefined index: username
+##################################################
+
+time: 26 Apr 16 - 12:33:26 PM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/memberpage_bak.php
+line: 202
+
+code: E_NOTICE
+message: Undefined index: username
+##################################################
+
+time: 20 May 16 - 12:59:46 PM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/memberpage.php
+line: 45
+
+code: E_NOTICE
+message: Undefined index: username
+##################################################
+
+time: 20 May 16 - 12:59:47 PM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/memberpage.php
+line: 45
+
+code: E_NOTICE
+message: Undefined index: username
+##################################################
+
+time: 20 May 16 - 1:00:04 PM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/memberpage.php
+line: 45
+
+code: E_NOTICE
+message: Undefined index: username
+##################################################
+
+time: 20 May 16 - 1:00:06 PM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/memberpage.php
+line: 45
+
+code: E_NOTICE
+message: Undefined index: username
+##################################################
+
+time: 20 May 16 - 1:00:10 PM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/memberpage.php
+line: 45
+
+code: E_NOTICE
+message: Undefined index: username
+##################################################
+
+time: 20 May 16 - 1:00:10 PM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/memberpage.php
+line: 45
+
+code: E_NOTICE
+message: Undefined index: username
+##################################################
+
+time: 20 May 16 - 1:00:24 PM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/memberpage.php
+line: 45
+
+code: E_NOTICE
+message: Undefined index: username
+##################################################
+
+time: 20 May 16 - 1:00:25 PM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/memberpage.php
+line: 45
+
+code: E_NOTICE
+message: Undefined index: username
+##################################################
+
+time: 20 May 16 - 1:00:43 PM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/memberpage.php
+line: 45
+
+code: E_NOTICE
+message: Undefined index: username
+##################################################
+
+time: 20 May 16 - 1:00:44 PM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/memberpage.php
+line: 45
+
+code: E_NOTICE
+message: Undefined index: username
+##################################################
+
+time: 20 May 16 - 1:07:35 PM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/memberpage.php
+line: 45
+
+code: E_NOTICE
+message: Undefined index: username
+##################################################
+
+time: 20 May 16 - 1:07:38 PM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/memberpage.php
+line: 45
+
+code: E_NOTICE
+message: Undefined index: username
+##################################################
+
+time: 20 May 16 - 1:07:44 PM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/memberpage.php
+line: 45
+
+code: E_NOTICE
+message: Undefined index: username
+##################################################
+
+time: 20 May 16 - 1:07:45 PM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/memberpage.php
+line: 45
+
+code: E_NOTICE
+message: Undefined index: username
+##################################################
+
+time: 20 May 16 - 1:07:45 PM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/memberpage.php
+line: 45
+
+code: E_NOTICE
+message: Undefined index: username
+##################################################
+
+time: 20 May 16 - 1:07:45 PM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/memberpage.php
+line: 45
+
+code: E_NOTICE
+message: Undefined index: username
+##################################################
+
+time: 20 May 16 - 1:08:03 PM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/memberpage.php
+line: 45
+
+code: E_NOTICE
+message: Undefined index: username
+##################################################
+
+time: 20 May 16 - 1:08:03 PM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/memberpage.php
+line: 45
+
+code: E_NOTICE
+message: Undefined index: username
+##################################################
+
+time: 20 May 16 - 1:12:02 PM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/memberpage.php
+line: 45
+
+code: E_NOTICE
+message: Undefined index: username
+##################################################
+
+time: 20 May 16 - 1:12:02 PM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/memberpage.php
+line: 45
+
+code: E_NOTICE
+message: Undefined index: username
+##################################################
+
+time: 20 May 16 - 1:12:02 PM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/memberpage.php
+line: 45
+
+code: E_NOTICE
+message: Undefined index: username
+##################################################
+
+time: 20 May 16 - 1:12:06 PM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/memberpage.php
+line: 45
+
+code: E_NOTICE
+message: Undefined index: username
+##################################################
+
+time: 20 May 16 - 1:12:06 PM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/memberpage.php
+line: 45
+
+code: E_NOTICE
+message: Undefined index: username
+##################################################
+
+time: 21 May 16 - 9:34:17 AM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/memberpage.php
+line: 45
+
+code: E_NOTICE
+message: Undefined index: username
+##################################################
+
+time: 21 May 16 - 9:34:19 AM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/memberpage.php
+line: 45
+
+code: E_NOTICE
+message: Undefined index: username
+##################################################
+
+time: 26 May 16 - 10:54:00 AM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/login.php
+line: 67
+
+code: E_NOTICE
+message: Undefined index: username
+##################################################
+
+time: 26 May 16 - 3:21:29 PM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/login.php
+line: 67
+
+code: E_NOTICE
+message: Undefined index: username
+##################################################
+
+time: 26 May 16 - 6:29:55 PM (BST)
+file: /home/sites/theshinemodel.com/public_html/login/login.php
+line: 67
+
+code: E_NOTICE
+message: Undefined index: username
+##################################################
+

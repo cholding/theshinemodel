@@ -1,0 +1,81 @@
+PHP Error Handling Class
+
+6 MAY 07
+Error handling is obviously fairly important so I have finally invested time into a custom error handling class for PHP 4 and above. It is a fairly small and simple class (only about 150 lines), I'm quite happy with it so far, of course you can download the class below and try it out for your self.
+
+ 
+
+Why Bother?
+The problem with the error reporting that comes standard with PHP (PHP 4 at least) is that it reveals too much information to users. It will display the type/nature of the error, the line and the file the error occurred in etc. This sort of feedback is obviously intended to help you, the developer, to resolve the problem. However, this sort of information may also assist someone in exploiting your web sites' vulnerabilities.
+
+There are other reasons why you would want your own custom error handler, obviously, you can customise it to do what you want. In my case I wanted to be able to:
+
+Show the user only very restricted messages loosely based on the error type
+Show the developer (myself) more information depending on what info I need to solve the error
+Alert the developer when an error has occured on one of the sites (via email)
+Log the errors for each site in seperate error logs.
+...which is a brief list of what this error handler essentially does.
+
+How the error handler works
+It is fairly straight forward to set this class as the default error handler for your site. As many of my sites include a configuration file I simply use the set_error_handler() function inside this file and that is all I need.
+
+include("class.error_handler.php");
+$handler = new error_handler();
+set_error_handler(array(&$handler, "handler"));
+Here I include the error handler class, create a new instance of the error handler object and pass a reference to this object to the set_error_handler() function, as well as the name of the function inside the object that is used to handle the errors. Of course, you can pass more arguments to the class to create a more functional object...
+
+Using the class parameters
+Creating the error handling object as above is fine if all you want to do is display generic error messages to the user. This doesn't really help you debug the error though, so its best to take advantage of the extra functionality in the class to do so.
+
+IP Adress
+The first parameter is IP address. As with all the parameters, this is optional. It is necessary though, if you want to include some further information about the error on the page where the error occurs, in the case that you browse to the page to start debugging it. Unfortunately, this parameter somewhat relies on you having a static IP address, but it can always be changed in the code of the class fairly easily so that is not a requirement.
+
+The error class will check that the IP address you have passed it matches the IP address your computer is using as you browse the site. If it does not match, the class assumes you are not the developer and simply displays the custom error message for general users. If you are unsure of your IP you can always check using showmyip.com, if you do not have a static IP address then your IP address is likely to change now and again.
+
+Show User
+0 -> off
+1 -> on (default)
+
+This parameter toggles whether you display custom error messages to users or not. Changing the custom error message is fairly straight forward and lives in the error_msg_basic() function.
+
+Show Developer
+0 -> off
+1 -> on (default)
+2 -> silent
+4 -> add context
+8 -> add backtrace
+16 -> font color white (red default)
+32 -> font color black (red default)
+
+Show developer is slightly more complicated. Not only does it toggle between displaying custom error messages for developers (=0 for off and !=0 for on), but this parameter uses bitwise operators to decide the nature of the error message you want to display - such as the content of the message and where and how to display it.
+
+Any value other than 0 will result in a custom error message being displayed*.
+
+Silent ::
+If the bits for the number 2 are present in the argument passed through, the error message will be wrapped in html comment tags and only visible if you view the source of the page.
+
+Context ::
+If the bits for the number 4 are present, error message will include the context of the error including globals arrays etc.
+
+Backtrace ::
+If bits for number 8 present, backtrace is added to the error message. Backtrace will include function calls made by the error class.
+
+Font Colour ::
+Bits for numbers 16 and 32 will alter colour used if developer error messages displayed to screen. Default is red.
+
+Example
+Passing the number 6 as the argument will trigger silent mode (2) and also context to be added to the error message (4).
+
+*Showing the developer custom error messages is dependant on the IP address parameter above.
+
+Email
+If you provide the class with an email address you will receive emails when errors are triggered. Emails will appear to be from error@theoffendingwebsite.com.
+
+Log
+If you provide a path to a log file then details about the error will be logged. The file does not need to exist as the class will attempt to create the file if it cannot be found.
+
+Download:
+Error Handling Class
+
+Wrap Up
+As always, let me know if you find any bugs/errors in the code. Hopefully it will be as useful for you as it has been for me. I will be updating this section soon with links to resources that were useful in putting this class together.

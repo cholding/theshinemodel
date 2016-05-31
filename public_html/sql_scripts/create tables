@@ -1,0 +1,41 @@
+CREATE TABLE `members` (
+  `memberID` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `active` varchar(255) NOT NULL,
+  `resetToken` varchar(255) DEFAULT NULL,
+  `resetComplete` varchar(3) DEFAULT 'No',
+  `membertype` int(11) NOT NULL,
+  `contacts_ID` bigint(20) NOT NULL,
+  `membertype_mtID` int(11) NOT NULL,
+  PRIMARY KEY (`memberID`),
+  KEY `fk_members_contacts_idx` (`contacts_ID`),
+  KEY `fk_members_membertype1_idx` (`membertype_mtID`)
+) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+SELECT * FROM `cl57-shine`.members;
+
+
+CREATE TABLE `login` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` text NOT NULL,
+  `email` text NOT NULL,
+  `password` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE `contacts` (
+  `ID` bigint(20) NOT NULL AUTO_INCREMENT,
+  `MemberID` int(11) NOT NULL,
+  `first_name` text NOT NULL,
+  `last_name` text NOT NULL,
+  `email` text NOT NULL,
+  `email1` text NOT NULL,
+  `home_phone` text NOT NULL,
+  `mobile_phone` text NOT NULL,
+  `other_phone` text NOT NULL,
+  `nationality` text NOT NULL,
+  `address1` text NOT NULL,
+  `address2` text NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='This is the main contacts table';

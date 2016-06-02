@@ -1,6 +1,4 @@
 <?php 
-
-//set up the error handler
 defined('SITE_ROOT')? null: define('SITE_ROOT', $_SERVER['DOCUMENT_ROOT']);
 include(SITE_ROOT."/global/class.error_handler.php");
 $handler = new error_handler(NULL,1,1,'colin-h@dircon.co.uk',SITE_ROOT.'/global/error_logs/test.com.txt');
@@ -15,7 +13,6 @@ require_once(SITE_ROOT. '/login/classes/shine_email.php');
 
 //if the user is not logged in - send them   to the login page
 if( !$user->is_logged_in() ){ header('Location: login.php'); } 
-
 
 
 //define page title
@@ -34,7 +31,7 @@ require('layout/header_member.php');
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand kimage"><img src="/images/shine.png" alt="SHINE" style="height:26px;margin-top:0,background-color:grey"></a>	
+                <a class="navbar-brand kimage"><img src="/images/shine.png" alt="SHIt" style="height:26px;margin-top:0,background-color:grey"></a>	
             </div>	
 
             <div class="collapse navbar-collapse">	
@@ -54,6 +51,8 @@ require('layout/header_member.php');
             </div>	
         </div>	<!-- END container -->
     </div> <!-- END navbar -->
+
+
 </nav>	
 <div class="container_st">	 <!--this is the image container -->
     <!-- Content -->
@@ -67,11 +66,11 @@ require('layout/header_member.php');
                     <a href="http://theshinemodel.com" target="_blank">
                         <img src="/images/bg5.jpg" alt="HTML tutorial" >
                     </a>
-                   
+<!--                    <img src="/images/bg5.jpg" />-->
                 </div>
                 <strong>RELAX</strong>
                 <p>In awe of Nature...</p>
-
+                
             </div>
             <div class="grid">
                 <div class="imgholder">

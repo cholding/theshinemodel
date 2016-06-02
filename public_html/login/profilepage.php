@@ -1,6 +1,4 @@
 <?php 
-//set up error handler
-
 defined('SITE_ROOT')? null: define('SITE_ROOT',$_SERVER['DOCUMENT_ROOT']);
 
 include(SITE_ROOT.'/global/class.error_handler.php');
@@ -11,8 +9,8 @@ set_error_handler(array(&$handler, "handler"));
 require_once(SITE_ROOT.'/login/includes/config.php');
 
 
-//if logged in redirect to members page
-if( $user->is_logged_in() ){ header('Location: memberpage.php'); } 
+//if not logged in redirect to login page
+if( !$user->is_logged_in() ){ header('Location: login.php'); } 
 
 //if form has been submitted process it
 if(isset($_POST['submit'])){
@@ -30,7 +28,7 @@ if(isset($_POST['submit'])){
         }
 
     }
-    //Password validation
+
     if(strlen($_POST['password']) < 3){
         $error[] = 'Password is too short.';
     }
@@ -78,17 +76,6 @@ if(isset($_POST['submit'])){
                 ':active' => $activasion
             ));
             $id = $db->lastInsertId('memberID');
-            
-            // insert into contacts
-             $stmt = $db->prepare('INSERT INTO contacts (username,password,email,active) VALUES (:username, :password, :email, :active)');
-            $stmt->execute(array(
-                ':username' => $_POST['username'],
-                ':password' => $hashedpassword,
-                ':email' => $_POST['email'],
-                ':active' => $activasion
-            ));
-            $id = $db->lastInsertId('memberID');
-            
 
             //send email
             $to = $_POST['email'];

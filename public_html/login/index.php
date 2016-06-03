@@ -78,22 +78,23 @@ if(isset($_POST['submit'])){
                 ':active' => $activasion
             ));
             $id = $db->lastInsertId('memberID');
-            
+
             // insert into contacts
-             $stmt = $db->prepare('INSERT INTO contacts (username,password,email,active) VALUES (:username, :password, :email, :active)');
+            $stmt = $db->prepare('INSERT INTO contacts (MemberID,first_name,last_name,email) VALUES (:memberid,:firstname,:lastname, :email)');
+
             $stmt->execute(array(
-                ':username' => $_POST['username'],
-                ':password' => $hashedpassword,
-                ':email' => $_POST['email'],
-                ':active' => $activasion
+                ':memberid' => $id,
+                ':firstname' => $_POST['f_name'],
+                ':lastname' => $_POST['l_name'],
+                ':email' => $_POST['email']
             ));
-            $id = $db->lastInsertId('memberID');
-            
+
+
 
             //send email
             $to = $_POST['email'];
             $subject = "Registration Confirmation";
-            $body = "Thank you for registering at demo site.\n\n To activate your account, please click on this link:\n\n ".DIR."activate.php?x=$id&y=$activasion\n\n Regards Site Admin \n\n";
+            $body = "Thank you for registering at TheShineModel.com.\n\n Username:".$_POST['username']. "\n\n To activate your account, please click on this link:\n\n ".DIR."activate.php?x=$id&y=$activasion\n\n Regards Site Admin \n\n";
             $additionalheaders = "From: <".SITEEMAIL.">\r\n";
             $additionalheaders .= "Reply-To: $".SITEEMAIL."";
             mail($to, $subject, $body, $additionalheaders);
@@ -134,7 +135,7 @@ require('layout/header.php');
                                 <p>Already a member? <a href='login.php'>Login</a> <a href='/index.php'><b>HOME</b></a></p>
 
                                 <?php
-                                //check for any errors
+                                //check for any errors and then display
                                 if(isset($error)){
                                     foreach($error as $error){
                                         echo '<p class="bg-danger">'.$error.'</p>';
@@ -147,28 +148,44 @@ require('layout/header.php');
                                 }
                                 ?>
                             </div>
-
+                            <div class="row">
+                                <div class="col-xs-4 col-sm-4 col-md-4">
+                                    <div class="form-group" style="margin:15px;">
+                                        <input type="text" name="f_name" id="first_name" class="form-control input-lg" placeholder="First Name" value="<?php if(isset($error)){ echo $_POST['f_name']; } ?>" tabindex="1">
+                                    </div>
+                                </div>
+                                <div class="col-xs-4 col-sm-4 col-md-4">
+                                    <div class="form-group" style="margin:15px;">
+                                        <input type="text" name="m_name" id="middlename" class="form-control input-lg" placeholder="Middle Name" value="<?php if(isset($error)){ echo $_POST['m_name']; } ?>" tabindex="2">
+                                    </div>
+                                </div>
+                                <div class="col-xs-4 col-sm-4 col-md-4">
+                                    <div class="form-group" style="margin:15px;">
+                                        <input type="text" name="l_name" id="last_name" class="form-control input-lg" placeholder="Last Name" value="<?php if(isset($error)){ echo $_POST['l_name']; } ?>" tabindex="3">
+                                    </div>
+                                </div>
+                            </div>
                             <div class="form-group" style="margin:15px;">
-                                <input type="text" name="username" id="username" class="form-control input-lg" placeholder="User Name" value="<?php if(isset($error)){ echo $_POST['username']; } ?>" tabindex="1">
+                                <input type="text" name="username" id="username" class="form-control input-lg" placeholder="User Name" value="<?php if(isset($error)){ echo $_POST['username']; } ?>" tabindex="4">
                             </div>
                             <div class="form-group"  style="margin:15px;">
-                                <input type="email" name="email" id="email" class="form-control input-lg" placeholder="Email Address" value="<?php if(isset($error)){ echo $_POST['email']; } ?>" tabindex="2">
+                                <input type="email" name="email" id="email" class="form-control input-lg" placeholder="Email Address" value="<?php if(isset($error)){ echo $_POST['email']; } ?>" tabindex="5">
                             </div>
                             <div class="row">
                                 <div class="col-xs-6 col-sm-6 col-md-6">
                                     <div class="form-group" style="margin:15px;">
-                                        <input type="password" name="password" id="password" class="form-control input-lg" placeholder="Password" tabindex="3">
+                                        <input type="password" name="password" id="password" class="form-control input-lg" placeholder="Password" tabindex="6">
                                     </div>
                                 </div>
                                 <div class="col-xs-6 col-sm-6 col-md-6">
                                     <div class="form-group"  style="margin:15px;">
-                                        <input type="password" name="passwordConfirm" id="passwordConfirm" class="form-control input-lg" placeholder="Confirm Password" tabindex="4">
+                                        <input type="password" name="passwordConfirm" id="passwordConfirm" class="form-control input-lg" placeholder="Confirm Password" tabindex="7">
                                     </div>
                                 </div>
                             </div>
 
                             <div class="row">
-                                <div class="col-xs-6 col-md-6"  style="margin:15px;"><input type="submit" name="submit" value="Register" class="btn btn-primary btn-block btn-lg" tabindex="5"></div>
+                                <div class="col-xs-6 col-md-6"  style="margin:15px;"><input type="submit" name="submit" value="Register" class="btn btn-primary btn-block btn-lg" tabindex="8"></div>
                             </div>
                         </form>
                     </div>

@@ -2,11 +2,12 @@
 defined('SITE_ROOT')? null: define('SITE_ROOT',$_SERVER['DOCUMENT_ROOT']);
 
 include(SITE_ROOT.'/global/class.error_handler.php');
-$handler = new error_handler(NULL,1,1,'colin-h@dircon.co.uk',SITE_ROOT.'global/error_logs/test.com.txt');
+$handler = new error_handler(NULL,1,1,'colin-h@dircon.co.uk',SITE_ROOT.'/global/error_logs/test.com.txt');
 set_error_handler(array(&$handler, "handler"));
 
 //include config
 require_once(SITE_ROOT.'/login/includes/config.php');
+
 
 
 //if not logged in redirect to login page
@@ -92,17 +93,48 @@ if(isset($_POST['submit'])){
             //else catch the exception and show the error.
         } catch(PDOException $e) {
             $error[] = $e->getMessage();
-        }
+        }   
 
     }
 
-}
+} else {
 
-//define page title
+    $memberid=$_SESSION['memberid'];
+
+    
+
+    //$stmt = $db->prepare('SELECT first_name, last_name, email FROM contacts WHERE MemberID = :memberid');
+//    echo "SELECT first_name, last_name, username, email FROM contacts WHERE MemberID = :memberid";
+
+    $stmt = $db->prepare('SELECT contacts.first_name, contacts.last_name,members.username, members.email FROM contacts INNER JOIN members ON contacts.MemberID = members.memberID WHERE members.memberID = :memberid');
+    //
+    $stmt->bindParam(':memberid',$memberid,PDO::PARAM_INT);
+
+    try{
+        $stmt->execute();
+       
+
+
+    }catch(PDOException $e){
+        echo ErrorHandle($e);
+
+    }
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    $login_firstname =$row['first_name'];
+    $login_lastname =$row['last_name'];
+    $login_username =$row['username'];
+    $login_email =$row['email'];
+
+
+} // end of else 
+
+//define page titlekiu
 $title = 'SHINE Login';
 
 //include header template
 require('layout/header.php'); 
+
 ?>
 
 <div class="container_bg">
@@ -117,11 +149,11 @@ require('layout/header.php');
 
                         <form role="form" method="post" action="" autocomplete="off">
                             <div style="margin:15px;">
-                                <h2>Please Sign Up</h2>
-                                <p>Already a member? <a href='login.php'>Login</a> <a href='/index.php'><b>HOME</b></a></p>
+                                <h2>Profile Page</h2>
+                                <p> <a href='/index.php'><b>HOME</b></a></p>
 
                                 <?php
-                                //check for any errors
+                                //check for any errors and then display
                                 if(isset($error)){
                                     foreach($error as $error){
                                         echo '<p class="bg-danger">'.$error.'</p>';
@@ -134,28 +166,46 @@ require('layout/header.php');
                                 }
                                 ?>
                             </div>
-
+                            <div class="row">
+                                <div class="col-xs-4 col-sm-4 col-md-4">
+                                    <div class="form-group" style="margin:15px;">
+                                        <input type="text" name="f_name" id="first_name" class="form-control input-lg" placeholder="First Name" value="<?php if(!isset($error)){ echo $login_firstname; } ?>" tabindex="1">
+                                    </div>
+                                </div>
+<!--
+                                <div class="col-xs-4 col-sm-4 col-md-4">
+                                    <div class="form-group" style="margin:15px;">
+                                        <input type="text" name="m_name" id="middlename" class="form-control input-lg" placeholder="Middle Name" value="<?php if(!isset($error)){ echo $login_lastname; } ?>" tabindex="2">
+                                    </div>
+                                </div>
+-->
+                                <div class="col-xs-4 col-sm-4 col-md-4">
+                                    <div class="form-group" style="margin:15px;">
+                                        <input type="text" name="l_name" id="last_name" class="form-control input-lg" placeholder="Last Name" value="<?php if(!isset($error)){ echo $login_lastname; } ?>" tabindex="3">
+                                    </div>
+                                </div>
+                            </div>
                             <div class="form-group" style="margin:15px;">
-                                <input type="text" name="username" id="username" class="form-control input-lg" placeholder="User Name" value="<?php if(isset($error)){ echo $_POST['username']; } ?>" tabindex="1">
+                                <input type="text" name="username" id="username" class="form-control input-lg" placeholder="User Name" value="<?php if(!isset($error)){ echo $login_username;} ?>" tabindex="4">
                             </div>
                             <div class="form-group"  style="margin:15px;">
-                                <input type="email" name="email" id="email" class="form-control input-lg" placeholder="Email Address" value="<?php if(isset($error)){ echo $_POST['email']; } ?>" tabindex="2">
+                                <input type="email" name="email" id="email" class="form-control input-lg" placeholder="Email Address" value="<?php if(!isset($error)){echo $login_email; } ?>" tabindex="5">
                             </div>
                             <div class="row">
                                 <div class="col-xs-6 col-sm-6 col-md-6">
                                     <div class="form-group" style="margin:15px;">
-                                        <input type="password" name="password" id="password" class="form-control input-lg" placeholder="Password" tabindex="3">
+                                        <input type="password" name="password" id="password" class="form-control input-lg" placeholder="Password" tabindex="6">
                                     </div>
                                 </div>
                                 <div class="col-xs-6 col-sm-6 col-md-6">
                                     <div class="form-group"  style="margin:15px;">
-                                        <input type="password" name="passwordConfirm" id="passwordConfirm" class="form-control input-lg" placeholder="Confirm Password" tabindex="4">
+                                        <input type="password" name="passwordConfirm" id="passwordConfirm" class="form-control input-lg" placeholder="Confirm Password" tabindex="7">
                                     </div>
                                 </div>
                             </div>
 
                             <div class="row">
-                                <div class="col-xs-6 col-md-6"  style="margin:15px;"><input type="submit" name="submit" value="Register" class="btn btn-primary btn-block btn-lg" tabindex="5"></div>
+                                <div class="col-xs-6 col-md-6"  style="margin:15px;"><input type="submit" name="submit" value="Update" class="btn btn-primary btn-block btn-lg" tabindex="8"></div>
                             </div>
                         </form>
                     </div>
@@ -167,7 +217,8 @@ require('layout/header.php');
 
 
 
-    <?php 
-    //include header template
-    require('layout/footer.php'); 
-    ?>
+
+<?php 
+//include header template
+require('layout/footer.php'); 
+?>

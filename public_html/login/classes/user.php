@@ -31,7 +31,8 @@ class User extends Password{
 		if($this->password_verify($password,$hashed) == 1){
 		    
 		    $_SESSION['loggedin'] = true;
-		    return true;
+		    
+            return true;
 		} 	
 	}
 		
@@ -76,7 +77,7 @@ class User extends Password{
 	{
 		//'SELECT C1.first_name, C1.last_name, M1.email FROM contacts AS C1 INNER JOIN members AS M1 ON C1.MemberID = M1.memberID WHERE M1.memberID = :memberid;')
 		try {
-			$stmt = $this->_db->prepare('SELECT first_name, last_name FROM contacts  WHERE MemberID = :memberid;');
+			$stmt = $this->_db->prepare('SELECT first_name, middle_name, last_name FROM contacts WHERE MemberID = :memberid;');
 			
 			$stmt->execute(array('memberid' => $memberID));
 			

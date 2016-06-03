@@ -194,18 +194,14 @@ require('layout/header.php');
                             <div class="row">
                                 <div class="col-xs-6 col-sm-6 col-md-6">
                                     <div class="form-group" style="margin:15px;">
-                                        <input type="password" name="password" id="password" class="form-control input-lg" placeholder="Password" tabindex="6">
+                                         <a class="btn btn-info btn-outline btn-sm" href='reset.php'  tabindex="6"><b>Reset Password</b></a>
                                     </div>
                                 </div>
-                                <div class="col-xs-6 col-sm-6 col-md-6">
-                                    <div class="form-group"  style="margin:15px;">
-                                        <input type="password" name="passwordConfirm" id="passwordConfirm" class="form-control input-lg" placeholder="Confirm Password" tabindex="7">
-                                    </div>
-                                </div>
+                                
                             </div>
 
                             <div class="row">
-                                <div class="col-xs-6 col-md-6"  style="margin:15px;"><input type="submit" name="submit" value="Update" class="btn btn-primary btn-block btn-lg" tabindex="8"></div>
+                                <div class="col-xs-6 col-md-6"  style="margin:15px;"><input type="submit" name="submit" value="Update" class="btn btn-primary btn-block btn-lg" tabindex="7"></div>
                             </div>
                         </form>
                     </div>

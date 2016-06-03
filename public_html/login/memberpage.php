@@ -42,15 +42,17 @@ require('layout/header_member.php');
                     <li class="active"><a href="#topContainer">Home</a></li>	
                     <li><a href="#details">About</a></li>	
                     <li><a href="http://www.theshinemodel.com/blog/">Goto blog</a></li>	
+                    <li><a class="btn btn-info btn-outline" href="/login/profilepage.php">Profile</a></li>	
                 </ul>	
                 <form class="navbar-form navbar-right" Method="post" action="/login/logout.php">	
                     <div class="form-group">	
-                        Welcome <?php echo $_SESSION['username']; ?>
+                        Welcome <?php echo $_SESSION['firstname']; ?>
 
                     </div>	
                     <button name="submit" type="submit" class="btn btn-success">Log Out</ button>	
 
                 </form>	
+                
             </div>	
         </div>	<!-- END container -->
     </div> <!-- END navbar -->
@@ -67,7 +69,7 @@ require('layout/header_member.php');
                     <a href="http://theshinemodel.com" target="_blank">
                         <img src="/images/bg5.jpg" alt="HTML tutorial" >
                     </a>
-                   
+
                 </div>
                 <strong>RELAX</strong>
                 <p>In awe of Nature...</p>

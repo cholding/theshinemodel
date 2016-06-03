@@ -22,6 +22,8 @@ if(isset($_POST['submit'])){
         $_SESSION['username']=$username;
         $_SESSION['memberid']=$user->getuserid($username);
         $_SESSION['fullname']=$user->getfullname($_SESSION['memberid']);
+        $_SESSION['firstname']=$user->getfirstname($_SESSION['memberid']);
+        $_SESSION['lastname']=$user->getlastname($_SESSION['memberid']);
         $_SESSION['email']=$user->getemail($_SESSION['memberid']);
 
         if($user->gettype($username)>1) {

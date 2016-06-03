@@ -10,7 +10,7 @@ set_error_handler(array(&$handler, "handler"));
 require_once(SITE_ROOT.'/login/includes/config.php');
 
 //if logged in redirect to members page
-if( $user->is_logged_in() ){ header('Location: memberpage.php'); } 
+if( !$user->is_logged_in() ){ header('Location: login.php'); } 
 
 //if form has been submitted process it
 if(isset($_POST['submit'])){

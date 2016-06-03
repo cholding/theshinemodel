@@ -45,6 +45,15 @@ echo "background-position: 0,0;\n";
 echo "opacity:1;\n";
 echo "}\n";
 
-
+echo ".btn-outline\n";
+echo "{\n";
+echo "background-color: transparent;\n";
+echo "color: inherit;\n";
+echo "border-width: 2px;\n";
+echo "-webkit-transition: all 0.75s;\n";
+echo "-moz-transition: all 0.75s;\n";
+echo "transition: all 0.75s;\n";
+echo "height: 100%;\n";
+echo "}\n";
 
 ?>

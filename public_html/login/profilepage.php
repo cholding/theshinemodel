@@ -223,23 +223,26 @@ require('layout/header.php');
                             <div class="row">
                                 <div class="col-xs-6 col-md-6"  style="margin:15px;"><input id="submit" type="submit" name="submit" value="Update" class="btn btn-primary btn-block btn-lg" tabindex="7" disabled="disabled"></div>
                             </div>
-                            
+
                         </form>
                     </div>
                 </div>
             </div>
-            
+
         </div>
     </div>
     <script>
-    function myFunction(val) {
+        function myFunction(val) {
+            $( document ).ready(function() {
+                console.log( "ready!" + val );
 
-        alert(val);
-        event.preventDefault();
-        $('button[type=submit]').prop('disabled', true);
-//        jQuery(".submit").prop('disabled', false).button('refresh')
-    }
-</script>
+                $( "#submit" ).prop( "disabled", false);
+
+            });
+        }
+
+
+    </script>
 
 
 

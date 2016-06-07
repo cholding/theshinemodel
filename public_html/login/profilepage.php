@@ -101,10 +101,10 @@ if(isset($_POST['submit'])){
 
     $memberid=$_SESSION['memberid'];
 
-    
+
 
     //$stmt = $db->prepare('SELECT first_name, last_name, email FROM contacts WHERE MemberID = :memberid');
-//    echo "SELECT first_name, last_name, username, email FROM contacts WHERE MemberID = :memberid";
+    //    echo "SELECT first_name, last_name, username, email FROM contacts WHERE MemberID = :memberid";
 
     $stmt = $db->prepare('SELECT contacts.first_name, contacts.last_name,members.username, members.email FROM contacts INNER JOIN members ON contacts.MemberID = members.memberID WHERE members.memberID = :memberid');
     //
@@ -112,7 +112,7 @@ if(isset($_POST['submit'])){
 
     try{
         $stmt->execute();
-       
+
 
 
     }catch(PDOException $e){
@@ -137,15 +137,16 @@ require('layout/header.php');
 
 ?>
 
+
 <div class="container_bg">
 
-    <div "form_container">
+    <div class="form_container">
         <div class="container-fluid">
 
             <div class="row">
 
-                <div id="loginbox" style="margin-top:50px;margin-left:50px;" class="mainbox col-md-3 col-md-offset-0 col-sm-12 col-sm-offset-1">
-                    <div class="panel panel-default" style="width:1200px;margin:15px;">
+                <div id="loginbox" style="margin-top:50px;margin-left:50px;" class="mainbox col-md-6 col-md-offset-0 col-sm-12 col-sm-offset-1">
+                    <div class="panel panel-default" style="width:800px;margin:15px;">
 
                         <form role="form" method="post" action="" autocomplete="off">
                             <div style="margin:15px;">
@@ -169,52 +170,80 @@ require('layout/header.php');
                             <div class="row">
                                 <div class="col-xs-4 col-sm-4 col-md-4">
                                     <div class="form-group" style="margin:15px;">
+                                        <label for="first_name">First Name</label>
                                         <input type="text" name="f_name" id="first_name" class="form-control input-lg" placeholder="First Name" value="<?php if(!isset($error)){ echo $login_firstname; } ?>" tabindex="1">
                                     </div>
                                 </div>
-<!--
+
+
                                 <div class="col-xs-4 col-sm-4 col-md-4">
                                     <div class="form-group" style="margin:15px;">
-                                        <input type="text" name="m_name" id="middlename" class="form-control input-lg" placeholder="Middle Name" value="<?php if(!isset($error)){ echo $login_lastname; } ?>" tabindex="2">
-                                    </div>
-                                </div>
--->
-                                <div class="col-xs-4 col-sm-4 col-md-4">
-                                    <div class="form-group" style="margin:15px;">
+                                        <label for="last_name">Last Name</label>
                                         <input type="text" name="l_name" id="last_name" class="form-control input-lg" placeholder="Last Name" value="<?php if(!isset($error)){ echo $login_lastname; } ?>" tabindex="3">
                                     </div>
                                 </div>
                             </div>
+                            <div class="row">
+                                <div class="col-xs-4 col-sm-4 col-md-4">
+                                    <div class="form-group" style="margin:15px;">
+                                        <label for="username">Username</label>
+                                        <input type="text" name="username" id="username" class="form-control input-lg" placeholder="User Name" value="<?php if(!isset($error)){ echo $login_username;} ?>" tabindex="4">
+                                    </div>
+                                </div>
+                                <div class="col-xs-4 col-sm-4 col-md-4">
+                                    <div class="form-group"  style="margin:15px;">
+                                        <label for="email">Email</label>
+                                        <input type="email" name="email" id="email" class="form-control input-lg" placeholder="Email Address" value="<?php if(!isset($error)){echo $login_email; } ?>" tabindex="5">
+                                    </div>
+                                </div>
+                            </div>
                             <div class="form-group" style="margin:15px;">
-                                <input type="text" name="username" id="username" class="form-control input-lg" placeholder="User Name" value="<?php if(!isset($error)){ echo $login_username;} ?>" tabindex="4">
+                                <label for="add1">Address Line 1</label>
+                                <input type="text" name="add1" id="add1" class="form-control input-lg" placeholder="Address Line1" value="<?php if(!isset($error)){ echo $login_username;} ?>" onchange="FieldChange(this.value)" tabindex="4">
                             </div>
                             <div class="form-group"  style="margin:15px;">
-                                <input type="email" name="email" id="email" class="form-control input-lg" placeholder="Email Address" value="<?php if(!isset($error)){echo $login_email; } ?>" tabindex="5">
+
+                                <label for="add2">Address Line 2</label>
+                                <input type="text" name="add2" id="add2" class="form-control input-lg" placeholder="Address Line 2" value="<?php if(!isset($error)){echo $login_email; } ?>" onkeyup="myFunction(this.value)" tabindex="5">
                             </div>
+
+
+
+
+                            <!-- this is the end reset button -->
                             <div class="row">
                                 <div class="col-xs-6 col-sm-6 col-md-6">
                                     <div class="form-group" style="margin:15px;">
-                                         <a class="btn btn-info btn-outline btn-sm" href='reset.php'  tabindex="6"><b>Reset Password</b></a>
+                                        <a class="btn btn-info btn-outline btn-sm" href='reset.php'  tabindex="6"><b>Reset Password</b></a>
                                     </div>
                                 </div>
-                                
+
                             </div>
 
                             <div class="row">
-                                <div class="col-xs-6 col-md-6"  style="margin:15px;"><input type="submit" name="submit" value="Update" class="btn btn-primary btn-block btn-lg" tabindex="7"></div>
+                                <div class="col-xs-6 col-md-6"  style="margin:15px;"><input id="submit" type="submit" name="submit" value="Update" class="btn btn-primary btn-block btn-lg" tabindex="7" disabled="disabled"></div>
                             </div>
+                            
                         </form>
                     </div>
                 </div>
             </div>
+            
         </div>
     </div>
+    <script>
+    function myFunction(val) {
+
+        alert(val);
+        event.preventDefault();
+        $('button[type=submit]').prop('disabled', true);
+//        jQuery(".submit").prop('disabled', false).button('refresh')
+    }
+</script>
 
 
 
-
-
-<?php 
-//include header template
-require('layout/footer.php'); 
-?>
+    <?php 
+    //include header template
+    require('layout/footer.php'); 
+    ?>

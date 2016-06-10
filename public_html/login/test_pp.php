@@ -11,7 +11,7 @@ require_once(SITE_ROOT.'/login/includes/config.php');
 echo "we are in profile page --- ";
 
 //if not logged in redirect to login page
-if( !$user->is_logged_in() ){ header('Location: login.php'); } 
+//if( !$user->is_logged_in() ){ header('Location: login.php'); } 
 
 
 
@@ -38,25 +38,50 @@ try{
     echo ErrorHandle($e);
     
 }
-    $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
-   $login_firstname =$row['first_name'];
-   $login_lastname =$row['last_name'];
-   $login_userid =$row['username'];
-   $login_email =$row['email'];
+$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$arrlength=count($result);
+echo "<br/><br/>";
 
+echo $arrlength;
+echo "<br/><br/>";
+print_r($result);
+echo "<br/><br/>";
+var_dump($result);
+echo "<br/><br/>";
+//echo "what !!";
 //
-   
-echo $login_firstname;
-echo "<br>";
-echo $login_lastname;
-echo "<br>";
-echo $login_userid;
-echo "<br>";
-echo $login_email;
+//echo "<br/><br/>";
 
+echo $result [0]["first_name"];
+echo "<br/><br/>";
+echo $result [0]["last_name"];
+echo "<br/><br/>";
+echo $result [0]["email"];
+
+
+
+
+
+////    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+////
+////   $login_firstname =$row['first_name'];
+////   $login_lastname =$row['last_name'];
+////   $login_userid =$row['username'];
+////   $login_email =$row['email'];
 //
+////
+//   
+//echo $login_firstname;
+//echo "<br>";
+//echo $login_lastname;
+//echo "<br>";
+//echo $login_userid;
+//echo "<br>";
+//echo $login_email;
 //
+////
+////
 
 
                    //define page title

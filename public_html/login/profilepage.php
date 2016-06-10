@@ -1,4 +1,6 @@
 <?php 
+
+
 defined('SITE_ROOT')? null: define('SITE_ROOT',$_SERVER['DOCUMENT_ROOT']);
 
 include(SITE_ROOT.'/global/class.error_handler.php');
@@ -14,86 +16,45 @@ require_once(SITE_ROOT.'/login/includes/config.php');
 if( !$user->is_logged_in() ){ header('Location: login.php'); } 
 
 //if form has been submitted process it
-if(isset($_POST['submit'])){
+if(isset($_POST['update'])){
 
-    //very basic validation
-    if(strlen($_POST['username']) < 3){
-        $error[] = 'Username is too short.';
-    } else {
-        $stmt = $db->prepare('SELECT username FROM members WHERE username = :username');
-        $stmt->execute(array(':username' => $_POST['username']));
-        $row = $stmt->fetch(PDO::FETCH_ASSOC);
-
-        if(!empty($row['username'])){
-            $error[] = 'Username provided is already in use.';
-        }
-
-    }
-
-    if(strlen($_POST['password']) < 3){
-        $error[] = 'Password is too short.';
-    }
-
-    if(strlen($_POST['passwordConfirm']) < 3){
-        $error[] = 'Confirm password is too short.';
-    }
-
-    if($_POST['password'] != $_POST['passwordConfirm']){
-        $error[] = 'Passwords do not match.';
-    }
-
-    //email validation
-    if(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)){
-        $error[] = 'Please enter a valid email address';
-    } else {
-        $stmt = $db->prepare('SELECT email FROM members WHERE email = :email');
-        $stmt->execute(array(':email' => $_POST['email']));
-        $row = $stmt->fetch(PDO::FETCH_ASSOC);
-
-        if(!empty($row['email'])){
-            $error[] = 'Email provided is already in use.';
-        }
-
-    }
-
-
+    
     //if no errors have been created carry on
     if(!isset($error)){
 
-        //hash the password
-        $hashedpassword = $user->password_hash($_POST['password'], PASSWORD_BCRYPT);
+        //load the new details into an array
 
-        //create the activasion code
-        $activasion = md5(uniqid(rand(),true));
+        $aryCopyProfile [0]['first_name']=$_POST['f_name'];
+        $aryCopyProfile [0]['last_name']=$_POST['l_name'];
+        $aryCopyProfile [0]['username']=$_POST['username'];
+        $aryCopyProfile [0]['email']=$_POST['email'];
+        //        $aryCopyProfile [0]['mobile_phone']=$_POST['mobilephone'];
+        //        $aryCopyProfile [0]['other_phone']=$_POST['otherphone'];
+        $aryCopyProfile [0]['address1']=$_POST['add1'];
+        $aryCopyProfile [0]['address2']=$_POST['add2'];
+        $aryCopyProfile [0]['city']=$_POST['city'];
+        $aryCopyProfile [0]['country']=$_POST['country'];
+        //        $aryCopyProfile [0]['postzipcode']=$_POST['postzipcode'];
 
-        try {
+//        
+        $message = $aryCopyProfile [0]['first_name'];
+        echo("<script>console.log('First name: ".$message."');</script>");
+//        echo("<script>console.log('PHP: ".$data."');</script>");
+        //                    console.log($aryCopyProfile[0]['last_name']);
+        //                    console.log($aryCopyProfile[0]['username']);
+        //                    console.log($aryCopyProfile[0]['email']);
+        //                    console.log($aryCopyProfile[0]['address1']);
+        //                    console.log($aryCopyProfile[0]['last_name']);
+        //                    console.log($aryCopyProfile[0]['city']);
+        //                    console.log($aryCopyProfile[0]['country']);
 
-            //insert into database with a prepared statement
-            $stmt = $db->prepare('INSERT INTO members (username,password,email,active) VALUES (:username, :password, :email, :active)');
-            $stmt->execute(array(
-                ':username' => $_POST['username'],
-                ':password' => $hashedpassword,
-                ':email' => $_POST['email'],
-                ':active' => $activasion
-            ));
-            $id = $db->lastInsertId('memberID');
+//        </script>
 
-            //send email
-            $to = $_POST['email'];
-            $subject = "Registration Confirmation";
-            $body = "Thank you for registering at demo site.\n\n To activate your account, please click on this link:\n\n ".DIR."activate.php?x=$id&y=$activasion\n\n Regards Site Admin \n\n";
-            $additionalheaders = "From: <".SITEEMAIL.">\r\n";
-            $additionalheaders .= "Reply-To: $".SITEEMAIL."";
-            mail($to, $subject, $body, $additionalheaders);
+            //        if $user->updateUserProfile($aryCopyProfile,$memberid){
+            //
+            //
+            //        }
 
-            //redirect to index page
-            header('Location: index.php?action=joined');
-            exit;
-
-            //else catch the exception and show the error.
-        } catch(PDOException $e) {
-            $error[] = $e->getMessage();
-        }   
 
     }
 
@@ -101,13 +62,8 @@ if(isset($_POST['submit'])){
 
     $memberid=$_SESSION['memberid'];
 
+    $stmt = $db->prepare('SELECT contacts.first_name,contacts.last_name,contacts.mobile_phone,contacts.other_phone,contacts.address1,contacts.address2,contacts.city,contacts.country,contacts.postzipcode,members.username,members.email FROM contacts INNER JOIN members ON contacts.MemberID = members.memberID WHERE members.memberID = :memberid');
 
-
-    //$stmt = $db->prepare('SELECT first_name, last_name, email FROM contacts WHERE MemberID = :memberid');
-    //    echo "SELECT first_name, last_name, username, email FROM contacts WHERE MemberID = :memberid";
-
-    $stmt = $db->prepare('SELECT contacts.first_name, contacts.last_name,members.username, members.email FROM contacts INNER JOIN members ON contacts.MemberID = members.memberID WHERE members.memberID = :memberid');
-    //
     $stmt->bindParam(':memberid',$memberid,PDO::PARAM_INT);
 
     try{
@@ -119,15 +75,26 @@ if(isset($_POST['submit'])){
         echo ErrorHandle($e);
 
     }
-    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+    //fetch all into an array
+    $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $aryCopyProfile = $result;
 
-    $login_firstname =$row['first_name'];
-    $login_lastname =$row['last_name'];
-    $login_username =$row['username'];
-    $login_email =$row['email'];
+    $arrlength=count($result);
 
+    $login_firstname=$result [0]["first_name"];
+    $login_lastname=$result [0]['last_name'];
+    $login_username=$result [0]['username'];
+    $login_email=$result [0]['email'];
+    $login_mobile=$result [0]['mobile_phone'];
+    $login_otherphone=$result [0]['other_phone'];
+    $login_add1=$result [0]['address1'];
+    $login_add2=$result [0]['address2'];
+    $login_city=$result [0]['city'];
+    $login_country=$result [0]['country'];
+    $login_postzipcode=$result [0]['postzipcode'];
 
 } // end of else 
+
 
 //define page titlekiu
 $title = 'SHINE Login';
@@ -136,7 +103,11 @@ $title = 'SHINE Login';
 require('layout/header.php'); 
 
 ?>
+<script>
+    //    console.log($login_firstname);
+    //    console.log($login_mobile);
 
+</script>
 
 <div class="container_bg">
 
@@ -167,11 +138,11 @@ require('layout/header.php');
                                 }
                                 ?>
                             </div>
-                            <div class="row">
-                                <div class="col-xs-4 col-sm-4 col-md-4">
+                            <div class="row row_margin" >
+                                <div class="col-xs-4">
                                     <div class="form-group" style="margin:15px;">
                                         <label for="first_name">First Name</label>
-                                        <input type="text" name="f_name" id="first_name" class="form-control input-lg" placeholder="First Name" value="<?php if(!isset($error)){ echo $login_firstname; } ?>" tabindex="1">
+                                        <input type="text" name="f_name" id="first_name" class="form-control input-sm" placeholder="First Name" value="<?php if(!isset($error)){ echo $login_firstname; } ?>" tabindex="1">
                                     </div>
                                 </div>
 
@@ -179,7 +150,7 @@ require('layout/header.php');
                                 <div class="col-xs-4 col-sm-4 col-md-4">
                                     <div class="form-group" style="margin:15px;">
                                         <label for="last_name">Last Name</label>
-                                        <input type="text" name="l_name" id="last_name" class="form-control input-lg" placeholder="Last Name" value="<?php if(!isset($error)){ echo $login_lastname; } ?>" tabindex="3">
+                                        <input type="text" name="l_name" id="last_name" class="form-control input-sm" placeholder="Last Name" value="<?php if(!isset($error)){ echo $login_lastname; } ?>" tabindex="3">
                                     </div>
                                 </div>
                             </div>
@@ -187,29 +158,57 @@ require('layout/header.php');
                                 <div class="col-xs-4 col-sm-4 col-md-4">
                                     <div class="form-group" style="margin:15px;">
                                         <label for="username">Username</label>
-                                        <input type="text" name="username" id="username" class="form-control input-lg" placeholder="User Name" value="<?php if(!isset($error)){ echo $login_username;} ?>" tabindex="4">
+                                        <input type="text" name="username" id="username" class="form-control input-sm " disabled="disabled" placeholder="User Name" value="<?php if(!isset($error)){ echo $login_username;} ?>" tabindex="4">
                                     </div>
                                 </div>
                                 <div class="col-xs-4 col-sm-4 col-md-4">
                                     <div class="form-group"  style="margin:15px;">
                                         <label for="email">Email</label>
-                                        <input type="email" name="email" id="email" class="form-control input-lg" placeholder="Email Address" value="<?php if(!isset($error)){echo $login_email; } ?>" tabindex="5">
+                                        <input type="email" name="email" id="email" class="form-control input-sm " placeholder="Email Address" value="<?php if(!isset($error)){echo $login_email; } ?>" tabindex="5">
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group" style="margin:15px;">
                                 <label for="add1">Address Line 1</label>
-                                <input type="text" name="add1" id="add1" class="form-control input-lg" placeholder="Address Line1" value="<?php if(!isset($error)){ echo $login_username;} ?>" onchange="FieldChange(this.value)" tabindex="4">
+                                <input type="text" name="add1" id="add1" class="form-control input-sm" placeholder="Address Line1" value="<?php if(!isset($error)){ echo $login_add1;} ?>" onchange="myFunction(this.value)" tabindex="6">
                             </div>
                             <div class="form-group"  style="margin:15px;">
 
                                 <label for="add2">Address Line 2</label>
-                                <input type="text" name="add2" id="add2" class="form-control input-lg" placeholder="Address Line 2" value="<?php if(!isset($error)){echo $login_email; } ?>" onkeyup="myFunction(this.value)" tabindex="5">
+                                <input type="text" name="add2" id="add2" class="form-control input-sm" placeholder="Address Line 2" value="<?php if(!isset($error)){echo $login_add2; } ?>" onkeyup="myFunction(this.value)" tabindex="7">
                             </div>
 
+                            <div class="form-group" style="margin:15px;">
+                                <label for="add3">Address Line 3</label>
+                                <input type="text" name="add3" id="add3" class="form-control input-sm" placeholder="Address Line3" value="<?php if(!isset($error)){ echo $login_country;} ?>" onkeyup="myFunction(this.value)" tabindex="8">
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-4 col-sm-4 col-md-4">
+                                    <div class="form-group"  style="margin:15px;">
+                                        <label for="city">City</label>
+                                        <input type="text" name="city" id="city" class="form-control input-sm" placeholder="City" value="<?php if(!isset($error)){echo $login_city; } ?>" onkeyup="myFunction(this.value)" tabindex="9">
+                                    </div>
+                                </div>
+                                <div class="col-xs-4 col-sm-4 col-md-4" style="margin-top: 20px">
 
+                                    <div class="bfh-selectbox bfh-countries" name="country" data-country="US" data-flags="true">
 
+                                        <input type="hidden" value="">
+                                        <a class="bfh-selectbox-toggle" role="button" data-toggle="bfh-selectbox" href="#">
+                                            <span class="bfh-selectbox-option input-medium" data-option=""></span>
+                                            <b class="caret"></b>
+                                        </a>
+                                        <div class="bfh-selectbox-options">
 
+                                            <input type="text" class="bfh-selectbox-filter">
+                                            <div role="listbox">
+                                                <ul role="option">
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> <!-- end of city country row-->
                             <!-- this is the end reset button -->
                             <div class="row">
                                 <div class="col-xs-6 col-sm-6 col-md-6">
@@ -221,7 +220,9 @@ require('layout/header.php');
                             </div>
 
                             <div class="row">
-                                <div class="col-xs-6 col-md-6"  style="margin:15px;"><input id="submit" type="submit" name="submit" value="Update" class="btn btn-primary btn-block btn-lg" tabindex="7" disabled="disabled"></div>
+                                <div class="col-xs-6 col-md-6"  style="margin:15px;">
+                                    <input id="update" type="submit" name="update" value="Update" class="btn btn-primary btn-block btn-lg" tabindex="7" disabled="disabled">
+                                </div>
                             </div>
 
                         </form>
@@ -236,7 +237,7 @@ require('layout/header.php');
             $( document ).ready(function() {
                 console.log( "ready!" + val );
 
-                $( "#submit" ).prop( "disabled", false);
+                $( "#update" ).prop( "disabled", false);
 
             });
         }

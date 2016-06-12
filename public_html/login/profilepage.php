@@ -18,7 +18,7 @@ if( !$user->is_logged_in() ){ header('Location: login.php'); }
 //if form has been submitted process it
 if(isset($_POST['update'])){
 
-    
+
     //if no errors have been created carry on
     if(!isset($error)){
 
@@ -33,27 +33,27 @@ if(isset($_POST['update'])){
         $aryCopyProfile [0]['address1']=$_POST['add1'];
         $aryCopyProfile [0]['address2']=$_POST['add2'];
         $aryCopyProfile [0]['city']=$_POST['city'];
-        $aryCopyProfile [0]['country']=$_POST['country'];
+        $aryCopyProfile [0]['country']=$user->country_code_to_country($_POST['country']);
         //        $aryCopyProfile [0]['postzipcode']=$_POST['postzipcode'];
 
-//        
+        //        
         $message = $aryCopyProfile [0]['first_name'];
-        echo("<script>console.log('First name: ".$message."');</script>");
-//        echo("<script>console.log('PHP: ".$data."');</script>");
-        //                    console.log($aryCopyProfile[0]['last_name']);
-        //                    console.log($aryCopyProfile[0]['username']);
-        //                    console.log($aryCopyProfile[0]['email']);
-        //                    console.log($aryCopyProfile[0]['address1']);
-        //                    console.log($aryCopyProfile[0]['last_name']);
-        //                    console.log($aryCopyProfile[0]['city']);
-        //                    console.log($aryCopyProfile[0]['country']);
+        echo("<script>console.log('First name: ".$aryCopyProfile [0]['first_name']."');</script>");
+        echo("<script>console.log('Last name: ".$aryCopyProfile [0]['last_name']."');</script>");
+        echo("<script>console.log('Email: ".$aryCopyProfile [0]['email']."');</script>");
+        echo("<script>console.log('Username: ".$aryCopyProfile [0]['username']."');</script>");
+        echo("<script>console.log('Address1: ".$aryCopyProfile [0]['address1']."');</script>");
+        echo("<script>console.log('Address2: ".$aryCopyProfile [0]['address2']."');</script>");
+        echo("<script>console.log('City: ".$aryCopyProfile [0]['city']."');</script>");
+        echo("<script>console.log('Country: ".$aryCopyProfile [0]['country']."');</script>");
 
-//        </script>
+        //        
+        //        </script>
 
-            //        if $user->updateUserProfile($aryCopyProfile,$memberid){
-            //
-            //
-            //        }
+        //        if $user->updateUserProfile($aryCopyProfile,$memberid){
+        //
+        //
+        //        }
 
 
     }
@@ -191,7 +191,7 @@ require('layout/header.php');
                                 </div>
                                 <div class="col-xs-4 col-sm-4 col-md-4" style="margin-top: 20px">
 
-                                    <div class="bfh-selectbox bfh-countries" name="country" data-country="US" data-flags="true">
+                                    <div class="country bfh-selectbox bfh-countries" data-name='country' data-country="US" data-flags="true" onchange="myFunction(this.value)">
 
                                         <input type="hidden" value="">
                                         <a class="bfh-selectbox-toggle" role="button" data-toggle="bfh-selectbox" href="#">
@@ -200,11 +200,13 @@ require('layout/header.php');
                                         </a>
                                         <div class="bfh-selectbox-options">
 
-                                            <input type="text" class="bfh-selectbox-filter">
-                                            <div role="listbox">
-                                                <ul role="option">
-                                                </ul>
-                                            </div>
+                                            <input type="text"  class="bfh-selectbox-filter" >
+                                            
+                                                <div role="listbox">
+                                                    <ul role="option">
+                                                    </ul>
+                                                </div>
+                                           
                                         </div>
                                     </div>
                                 </div>
@@ -233,6 +235,7 @@ require('layout/header.php');
         </div>
     </div>
     <script>
+        // this function enables the update button on a keyup
         function myFunction(val) {
             $( document ).ready(function() {
                 console.log( "ready!" + val );
@@ -241,7 +244,8 @@ require('layout/header.php');
 
             });
         }
-
+        
+       
 
     </script>
 

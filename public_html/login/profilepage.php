@@ -47,13 +47,11 @@ if(isset($_POST['update'])){
         echo("<script>console.log('City: ".$aryCopyProfile [0]['city']."');</script>");
         echo("<script>console.log('Country: ".$aryCopyProfile [0]['country']."');</script>");
 
-        //        
-        //        </script>
-
-        //        if $user->updateUserProfile($aryCopyProfile,$memberid){
-        //
-        //
-        //        }
+        
+//                if $user->updateUserProfile($aryCopyProfile,$memberid){
+//                     echo("<script>console.log('Update successful');</script>");
+//        
+//                }
 
 
     }

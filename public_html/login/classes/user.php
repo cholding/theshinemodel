@@ -137,7 +137,8 @@ class User extends Password{
             echo '<p class="bg-danger">'.$e->getMessage() .' -' .$memberID .' in getfirstname</p>';
         }
     }
-    public function mail_attachment($filename, $path, $mailto, $from_mail, $from_name, $replyto, $subject, $message) {
+    public function mail_attachment($filename, $path, $mailto, $from_mail, $from_name, $replyto, $subject, $message) 
+    {
         $file = $path.$filename;
         $file_size = filesize($file);
         $handle = fopen($file, "rb");
@@ -169,7 +170,8 @@ class User extends Password{
     }
 
 
-    public function updateUserProfile($aryFields, $memberid) {
+    public function updateUserProfile($aryFields, $memberid)
+    {
 
         $commit = true;
         $proceed = true;
@@ -181,49 +183,52 @@ class User extends Password{
 
 
         // the update info statements
-        
+
 
         $q1 = 'UPDATE members 
                 SET username = :username,
                 email= :email
-                WHERE id= :memberid'
-                
+                WHERE id= :memberid';
+
 
         $q2 = 'UPDATE contacts
-	             SET
-                 first_name = :firstname,
-                 last_name = :lastname,
-                 email = :email,
-                 address1 = :address1,
-                 address2 = :address2,
-                 city = :city,
-                 country = :country,
-                 postzipcode = :postzipcode 
-	             WHERE id= :memberid';
+             SET
+             first_name = :firstname,
+             last_name = :lastname,
+             email = :email,
+             address1 = :address1,
+             address2 = :address2,
+             city = :city,
+             country = :country,
+             postzipcode = :postzipcode 
+             WHERE id= :memberid';
 
-        try{
+        try
+        {
 
-            
+
             //Initiate a transaction
             $db->beginTransaction(); 
 
             //Check the appointment is available before proceeding
-            $stmt1 = $db->prepare($q1);
-            if($stmt1) {
+            $stmt1 = $this->_db->prepare($q1);
+            if($stmt1) 
+            {
                 $stmt->bindParam(':username', $p_username);
                 $stmt->bindParam(':email', $p_email);
                 $stmt->bindParam(':memberid', $p_memberid);
-                
+
                 // set paramater values
                 $p_username = $aryFields [0]['username'];
                 $p_email = $aryFields [0]['email'];
                 $p_memberid = $memberid;
                 $stmt->execute();
 
-               
-                if($proceed) {
 
-                    $stmt2 = $db->prepare($q2);
+                if($proceed) 
+                {
+
+                    $stmt2 = $this->_db->prepare($q2);
                     if($stmt2) {
                         $stmt2->bindParam(':firstname', $p_firstname);
                         $stmt2->bindParam(':lastname', $p_lastname);
@@ -234,8 +239,8 @@ class User extends Password{
                         $stmt2->bindParam(':country', $p_country);
                         $stmt2->bindParam(':postzipcode', $p_postzipcode);
                         $stmt2->bindParam(':memberid', $p_memberid);
-                        
-                
+
+
                         // update a row
                         $p_firstname = $aryFields [0]['firstname'];
                         $p_lastname = $aryFields [0]['lastname'];
@@ -245,12 +250,10 @@ class User extends Password{
                         $p_lastname = $aryFields [0]['city'];
                         $p_lastname = $aryFields [0]['country'];
                         $p_memberid = $memberid;
-                                                
-                        $stmt2->execute();
-//                        if ($stmt2->rowCount() <= 0) $commit = false;
-                    }
 
-                   
+                        $stmt2->execute();
+
+                    }
 
                 }
             }
@@ -258,22 +261,22 @@ class User extends Password{
         } catch(PDOException $e) { //If the update or select query fail, we can't commit any changes to the database
             $return->message = "Error Message:  " . $e->getMessage();
             $commit = false;
-        }
+        } // end try
 
         //Based on the value of $commit, decide whether to call rollback or commit
         if(!$commit){
-            $db->rollback();
+            $this->_db->rollback();
         } else {
-            $db->commit();
+            $this->_db->commit();
             $return->message = "Visibility updated successfully";
             $return->success = true;
-        }
+        } // end commit
 
         //Send this information back to the JavaScript, encoded as json
         return json_encode($return);
 
-    }
-    
+    } // end function
+
     //this function returns the full country from the country code
     function country_code_to_country( $code ){
         $code = strtoupper($code);

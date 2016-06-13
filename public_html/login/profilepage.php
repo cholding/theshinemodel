@@ -47,14 +47,87 @@ if(isset($_POST['update'])){
         echo("<script>console.log('City: ".$aryCopyProfile [0]['city']."');</script>");
         echo("<script>console.log('Country: ".$aryCopyProfile [0]['country']."');</script>");
 
+        echo("<script>console.log('ID: ".$_SESSION['memberid']."');</script>");
+        $memberid=$_SESSION['memberid'];
         
-//                if $user->updateUserProfile($aryCopyProfile,$memberid){
-//                     echo("<script>console.log('Update successful');</script>");
-//        
-//                }
+        //---------------------------------
+        //start the update
+        // the update info statements
+        $q1 = 'UPDATE members SET email=:email WHERE memberID=:memberid';
+        echo("<script>console.log('Q1: ".$q1."');</script>");
+        
+        $q2 = 'UPDATE contacts SET first_name=:firstname,last_name=:lastname,email=:email,address1=:address1,address2=:address2,city=:city,country=:country,postzipcode=:postzipcode WHERE MemberID=:memberid';
+        echo("<script>console.log('Q2: ".$q2."');</script>");
+        
+        try
+        {
+            //Initiate a transaction
+            $db->beginTransaction(); 
 
+            //Check the appointment is available before proceeding
+            $stmt1 = $db->prepare($q1);
+            if($stmt1) 
+            {
+                // set paramater values
+                $username = $aryCopyProfile [0]['username'];
+                $email = $aryCopyProfile [0]['email'];
+                $memberid = $memberid;
+                
+//                $stmt1->bindParam(':username', $username,PDO::PARAM_STR);
+                $stmt1->bindParam(':email', $email,PDO::PARAM_STR);
+                $stmt1->bindParam(':memberid', $memberid,PDO::PARAM_STR);
 
-    }
+                
+                $stmt1->execute();
+                $proceed = true;
+            }
+            if($proceed) 
+                {
+
+                    $stmt2 = $db->prepare($q2);
+                    if($stmt2) {
+                        
+                        // update a row
+                        $firstname = $aryCopyProfile [0]['first_name'];
+                        $lastname = $aryCopyProfile [0]['last_name'];
+                        $email = $aryCopyProfile [0]['email'];
+                        $address1 = $aryCopyProfile [0]['address1'];
+                        $address2 = $aryCopyProfile [0]['address2'];
+                        $city = $aryCopyProfile [0]['city'];
+                        $country = $aryCopyProfile [0]['country'];
+                        $memberid = $memberid;
+                        
+                        $stmt2->bindParam(':firstname', $firstname,PDO::PARAM_STR);
+                        $stmt2->bindParam(':lastname', $lastname,PDO::PARAM_STR);
+                        $stmt2->bindParam(':email', $email,PDO::PARAM_STR);
+                        $stmt2->bindParam(':address1', $address1,PDO::PARAM_STR);
+                        $stmt2->bindParam(':address2', $address2,PDO::PARAM_STR);
+                        $stmt2->bindParam(':city', $city,PDO::PARAM_STR);
+                        $stmt2->bindParam(':country', $country,PDO::PARAM_STR);
+                        $stmt2->bindParam(':postzipcode', $postzipcode,PDO::PARAM_STR);
+                        $stmt2->bindParam(':memberid', $memberid,PDO::PARAM_STR);
+                        
+
+                        $stmt2->execute();
+                        
+                        $commit = true;
+                    }
+                } // end proceed
+            
+        
+        } catch(PDOException $e) { //If the update or select query fail, we can't commit any changes to the database
+            echo("<script>console.log('error: ". $e->getMessage()."');</script>"); 
+            $commit = false;
+        } // end try
+            //Based on the value of $commit, decide whether to call rollback or commit
+        
+        if(!$commit){
+            $db->rollback();
+        } else {
+            $db->commit();
+        } // end commit
+ 
+    } // end isset error
 
 } else {
 

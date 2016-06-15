@@ -72,7 +72,7 @@
                     <li class="active"><a href="#topContainer">Home</a></li>	
                     <li><a href="#details">About</a></li>	
                     <li><a href="#footer">Download The App</a></li>	
-                    <li><a href="http://www.theshinemodel.com/blog/">Visit the blog</a></li>
+                    <li><a href="http://www.theshinemodel.com/blog/" target="_blank">Visit the blog</a></li>
                     <li> <a class="btn btn-info-outline btn-sm" href="login/index.php">Sign Up! (please) </a></li>
 
                 </ul>	

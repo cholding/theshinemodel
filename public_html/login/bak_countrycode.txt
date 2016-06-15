@@ -1,0 +1,38 @@
+public function getCountry($country, $type)
+    {
+        // get the country name or the country code depending on the parameter
+
+
+        if ($type=='code')
+        {
+            // if we want the code
+            $stmt = $this->_db->prepare('CALL sp_country_code(:c_name,@c_code)');
+            $stmt->bindParam(':c_name',$country,PDO::PARAM_STR,50);
+
+            // call the stored procedure
+            $stmt->execute();
+            $Results = $this->_db->query("SELECT @c_code AS Countrycode")->fetch(PDO::FETCH_ASSOC); 
+            $CountryCode = $Results['Countrycode'];
+            return $CountryCode;
+
+
+        } elseif ($type=="country")
+        {
+
+            // if we want the code
+            $stmt = $this->_db->prepare('CALL sp_country_name(:c_code,@c_name)');
+            $stmt->bindParam(':c_code',$country,PDO::PARAM_STR,50);
+
+            // call the stored procedure
+            $stmt->execute();
+            $Results = $this->_db->query("SELECT @c_name AS CountryName")->fetch(PDO::FETCH_ASSOC); 
+            $CountryName = $Results['CountryName'];
+            return $CountryName;
+            
+        }else {
+            return "failed" ;
+
+        }
+
+
+    }

@@ -32,10 +32,12 @@ if(isset($_POST['update'])){
         //        $aryCopyProfile [0]['other_phone']=$_POST['otherphone'];
         $aryCopyProfile [0]['address1']=$_POST['add1'];
         $aryCopyProfile [0]['address2']=$_POST['add2'];
+        $aryCopyProfile [0]['postcode']=$_POST['postcode'];
         $aryCopyProfile [0]['city']=$_POST['city'];
-        $aryCopyProfile [0]['country']=$user->country_code_to_country($_POST['country']);
+        $aryCopyProfile [0]['countrycode']=$_POST['country'];
         //        $aryCopyProfile [0]['postzipcode']=$_POST['postzipcode'];
-
+        $tmpcc=$_POST['country'];
+        $aryCopyProfile [0]['country']=$user->getCountry($tmpcc,'country');
         //        
         $message = $aryCopyProfile [0]['first_name'];
         echo("<script>console.log('First name: ".$aryCopyProfile [0]['first_name']."');</script>");
@@ -44,21 +46,22 @@ if(isset($_POST['update'])){
         echo("<script>console.log('Username: ".$aryCopyProfile [0]['username']."');</script>");
         echo("<script>console.log('Address1: ".$aryCopyProfile [0]['address1']."');</script>");
         echo("<script>console.log('Address2: ".$aryCopyProfile [0]['address2']."');</script>");
+        echo("<script>console.log('Postcode: ".$aryCopyProfile [0]['postcode']."');</script>");
         echo("<script>console.log('City: ".$aryCopyProfile [0]['city']."');</script>");
         echo("<script>console.log('Country: ".$aryCopyProfile [0]['country']."');</script>");
-
+        echo("<script>console.log('Countrycode: ".$aryCopyProfile [0]['country']."');</script>");
         echo("<script>console.log('ID: ".$_SESSION['memberid']."');</script>");
         $memberid=$_SESSION['memberid'];
-        
+
         //---------------------------------
         //start the update
         // the update info statements
         $q1 = 'UPDATE members SET email=:email WHERE memberID=:memberid';
         echo("<script>console.log('Q1: ".$q1."');</script>");
-        
-        $q2 = 'UPDATE contacts SET first_name=:firstname,last_name=:lastname,email=:email,address1=:address1,address2=:address2,city=:city,country=:country,postzipcode=:postzipcode WHERE MemberID=:memberid';
+
+        $q2 = 'UPDATE contacts SET first_name=:firstname,last_name=:lastname,email=:email,address1=:address1,address2=:address2,city=:city,country=:country,countrycode=:countrycode,postzipcode=:postzipcode WHERE MemberID=:memberid';
         echo("<script>console.log('Q2: ".$q2."');</script>");
-        
+
         try
         {
             //Initiate a transaction
@@ -72,68 +75,73 @@ if(isset($_POST['update'])){
                 $username = $aryCopyProfile [0]['username'];
                 $email = $aryCopyProfile [0]['email'];
                 $memberid = $memberid;
-                
-//                $stmt1->bindParam(':username', $username,PDO::PARAM_STR);
+
+                //                $stmt1->bindParam(':username', $username,PDO::PARAM_STR);
                 $stmt1->bindParam(':email', $email,PDO::PARAM_STR);
                 $stmt1->bindParam(':memberid', $memberid,PDO::PARAM_STR);
 
-                
+
                 $stmt1->execute();
                 $proceed = true;
             }
             if($proceed) 
-                {
+            {
 
-                    $stmt2 = $db->prepare($q2);
-                    if($stmt2) {
-                        
-                        // update a row
-                        $firstname = $aryCopyProfile [0]['first_name'];
-                        $lastname = $aryCopyProfile [0]['last_name'];
-                        $email = $aryCopyProfile [0]['email'];
-                        $address1 = $aryCopyProfile [0]['address1'];
-                        $address2 = $aryCopyProfile [0]['address2'];
-                        $city = $aryCopyProfile [0]['city'];
-                        $country = $aryCopyProfile [0]['country'];
-                        $memberid = $memberid;
-                        
-                        $stmt2->bindParam(':firstname', $firstname,PDO::PARAM_STR);
-                        $stmt2->bindParam(':lastname', $lastname,PDO::PARAM_STR);
-                        $stmt2->bindParam(':email', $email,PDO::PARAM_STR);
-                        $stmt2->bindParam(':address1', $address1,PDO::PARAM_STR);
-                        $stmt2->bindParam(':address2', $address2,PDO::PARAM_STR);
-                        $stmt2->bindParam(':city', $city,PDO::PARAM_STR);
-                        $stmt2->bindParam(':country', $country,PDO::PARAM_STR);
-                        $stmt2->bindParam(':postzipcode', $postzipcode,PDO::PARAM_STR);
-                        $stmt2->bindParam(':memberid', $memberid,PDO::PARAM_STR);
-                        
+                $stmt2 = $db->prepare($q2);
+                if($stmt2) {
 
-                        $stmt2->execute();
-                        
-                        $commit = true;
-                    }
-                } // end proceed
-            
-        
+                    // update a row
+                    $firstname = $aryCopyProfile [0]['first_name'];
+                    $lastname = $aryCopyProfile [0]['last_name'];
+                    $email = $aryCopyProfile [0]['email'];
+                    $address1 = $aryCopyProfile [0]['address1'];
+                    $address2 = $aryCopyProfile [0]['address2'];
+                    $city = $aryCopyProfile [0]['city'];
+                    $country = $aryCopyProfile [0]['country'];
+                    $postzipcode =$aryCopyProfile [0]['postcode'];
+                    $countrycode=$aryCopyProfile [0]['countrycode'];
+                    $memberid = $memberid;
+
+                    $stmt2->bindParam(':firstname', $firstname,PDO::PARAM_STR);
+                    $stmt2->bindParam(':lastname', $lastname,PDO::PARAM_STR);
+                    $stmt2->bindParam(':email', $email,PDO::PARAM_STR);
+                    $stmt2->bindParam(':address1', $address1,PDO::PARAM_STR);
+                    $stmt2->bindParam(':address2', $address2,PDO::PARAM_STR);
+                    $stmt2->bindParam(':city', $city,PDO::PARAM_STR);
+                    $stmt2->bindParam(':country', $country,PDO::PARAM_STR);
+                    $stmt2->bindParam(':countrycode', $countrycode,PDO::PARAM_STR);
+                    $stmt2->bindParam(':postzipcode', $postzipcode,PDO::PARAM_STR);
+                    $stmt2->bindParam(':memberid', $memberid,PDO::PARAM_STR);
+
+
+                    $stmt2->execute();
+
+                    $commit = true;
+                }
+            } // end proceed
+
+
         } catch(PDOException $e) { //If the update or select query fail, we can't commit any changes to the database
             echo("<script>console.log('error: ". $e->getMessage()."');</script>"); 
             $commit = false;
         } // end try
-            //Based on the value of $commit, decide whether to call rollback or commit
-        
+        //Based on the value of $commit, decide whether to call rollback or commit
+
         if(!$commit){
             $db->rollback();
         } else {
             $db->commit();
         } // end commit
- 
+        //after update head to the memberpage
+        header('Location: memberpage.php');
+
     } // end isset error
 
 } else {
 
     $memberid=$_SESSION['memberid'];
 
-    $stmt = $db->prepare('SELECT contacts.first_name,contacts.last_name,contacts.mobile_phone,contacts.other_phone,contacts.address1,contacts.address2,contacts.city,contacts.country,contacts.postzipcode,members.username,members.email FROM contacts INNER JOIN members ON contacts.MemberID = members.memberID WHERE members.memberID = :memberid');
+    $stmt = $db->prepare('SELECT contacts.first_name,contacts.last_name,contacts.mobile_phone,contacts.other_phone,contacts.address1,contacts.address2,contacts.city,contacts.country,contacts.countrycode,contacts.postzipcode,members.username,members.email FROM contacts INNER JOIN members ON contacts.MemberID = members.memberID WHERE members.memberID = :memberid');
 
     $stmt->bindParam(':memberid',$memberid,PDO::PARAM_INT);
 
@@ -162,7 +170,11 @@ if(isset($_POST['update'])){
     $login_add2=$result [0]['address2'];
     $login_city=$result [0]['city'];
     $login_country=$result [0]['country'];
+    $login_countrycode=$result [0]['countrycode'];
     $login_postzipcode=$result [0]['postzipcode'];
+
+    echo("<script>console.log('Country: ".$tmpcc."');</script>");
+    echo("<script>console.log('code: ".$login_countrycode."');</script>");
 
 } // end of else 
 
@@ -188,7 +200,7 @@ require('layout/header.php');
             <div class="row">
 
                 <div id="loginbox" style="margin-top:50px;margin-left:50px;" class="mainbox col-md-6 col-md-offset-0 col-sm-12 col-sm-offset-1">
-                    <div class="panel panel-default" style="width:800px;margin:15px;">
+                    <div class="panel panel-default" style="width:1000px;margin:15px;">
 
                         <form role="form" method="post" action="" autocomplete="off">
                             <div style="margin:15px;">
@@ -218,51 +230,61 @@ require('layout/header.php');
                                 </div>
 
 
-                                <div class="col-xs-4 col-sm-4 col-md-4">
+                                <div class="col-xs-4">
                                     <div class="form-group" style="margin:15px;">
                                         <label for="last_name">Last Name</label>
                                         <input type="text" name="l_name" id="last_name" class="form-control input-sm" placeholder="Last Name" value="<?php if(!isset($error)){ echo $login_lastname; } ?>" tabindex="3">
                                     </div>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col-xs-4 col-sm-4 col-md-4">
+                            <div class="row row_margin">
+
+                                <div class="col-xs-6">
                                     <div class="form-group" style="margin:15px;">
                                         <label for="username">Username</label>
                                         <input type="text" name="username" id="username" class="form-control input-sm " disabled="disabled" placeholder="User Name" value="<?php if(!isset($error)){ echo $login_username;} ?>" tabindex="4">
                                     </div>
                                 </div>
-                                <div class="col-xs-4 col-sm-4 col-md-4">
+                                <div class="col-xs-6">
                                     <div class="form-group"  style="margin:15px;">
                                         <label for="email">Email</label>
                                         <input type="email" name="email" id="email" class="form-control input-sm " placeholder="Email Address" value="<?php if(!isset($error)){echo $login_email; } ?>" tabindex="5">
                                     </div>
                                 </div>
+
                             </div>
+
                             <div class="form-group" style="margin:15px;">
                                 <label for="add1">Address Line 1</label>
                                 <input type="text" name="add1" id="add1" class="form-control input-sm" placeholder="Address Line1" value="<?php if(!isset($error)){ echo $login_add1;} ?>" onchange="myFunction(this.value)" tabindex="6">
                             </div>
-                            <div class="form-group"  style="margin:15px;">
 
+
+                            <div class="form-group"  style="margin:15px;">
                                 <label for="add2">Address Line 2</label>
                                 <input type="text" name="add2" id="add2" class="form-control input-sm" placeholder="Address Line 2" value="<?php if(!isset($error)){echo $login_add2; } ?>" onkeyup="myFunction(this.value)" tabindex="7">
                             </div>
 
-                            <div class="form-group" style="margin:15px;">
-                                <label for="add3">Address Line 3</label>
-                                <input type="text" name="add3" id="add3" class="form-control input-sm" placeholder="Address Line3" value="<?php if(!isset($error)){ echo $login_country;} ?>" onkeyup="myFunction(this.value)" tabindex="8">
-                            </div>
-                            <div class="row">
+                            <div class="row row_margin">
+                                <div class="col-xs-4 col-sm-4 col-md-4">
+                                    <div class="form-group" style="margin:15px;">
+                                        <label for="postcode">Post/Zip Code</label>
+                                        <input type="text" name="postcode" id="postcode" class="form-control input-sm" placeholder="postcode" value="<?php if(!isset($error)){ echo $login_postzipcode;} ?>" onkeyup="myFunction(this.value)" tabindex="8">
+                                    </div>
+                                </div>
+
+
                                 <div class="col-xs-4 col-sm-4 col-md-4">
                                     <div class="form-group"  style="margin:15px;">
                                         <label for="city">City</label>
                                         <input type="text" name="city" id="city" class="form-control input-sm" placeholder="City" value="<?php if(!isset($error)){echo $login_city; } ?>" onkeyup="myFunction(this.value)" tabindex="9">
                                     </div>
                                 </div>
+                            
+<!--                            <div class="row row_margin">-->
                                 <div class="col-xs-4 col-sm-4 col-md-4" style="margin-top: 20px">
 
-                                    <div class="country bfh-selectbox bfh-countries" data-name='country' data-country="US" data-flags="true" onchange="myFunction(this.value)">
+                                    <div class="country bfh-selectbox bfh-countries" data-name='country' data-country="<?php if(!isset($error)){echo $login_countrycode; } ?>" data-flags="true" onchange="myFunction(this.value)">
 
                                         <input type="hidden" value="">
                                         <a class="bfh-selectbox-toggle" role="button" data-toggle="bfh-selectbox" href="#">
@@ -272,28 +294,28 @@ require('layout/header.php');
                                         <div class="bfh-selectbox-options">
 
                                             <input type="text"  class="bfh-selectbox-filter" >
-                                            
-                                                <div role="listbox">
-                                                    <ul role="option">
-                                                    </ul>
-                                                </div>
-                                           
+
+                                            <div role="listbox">
+                                                <ul role="option">
+                                                </ul>
+                                            </div>
+
                                         </div>
                                     </div>
                                 </div>
-                            </div> <!-- end of city country row-->
+                            </div> 
                             <!-- this is the end reset button -->
-                            <div class="row">
-                                <div class="col-xs-6 col-sm-6 col-md-6">
+                            <div class="row row_margin">
+                                <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group" style="margin:15px;">
-                                        <a class="btn btn-info btn-outline btn-sm" href='reset.php'  tabindex="6"><b>Reset Password</b></a>
+                                        <a class="btn btn-info btn-outline btn-xsm" href='reset.php'  tabindex="6"><b>Reset Password</b></a>
                                     </div>
                                 </div>
 
                             </div>
 
-                            <div class="row">
-                                <div class="col-xs-6 col-md-6"  style="margin:15px;">
+                            <div class="row row_margin">
+                                <div class="col-xs-4 col-md-4"  style="margin:15px;">
                                     <input id="update" type="submit" name="update" value="Update" class="btn btn-primary btn-block btn-lg" tabindex="7" disabled="disabled">
                                 </div>
                             </div>
@@ -315,8 +337,8 @@ require('layout/header.php');
 
             });
         }
-        
-       
+
+
 
     </script>
 

@@ -169,108 +169,57 @@ class User extends Password{
         }
     }
 
+    public function getCountry($country, $type)
+    {
+        // get the country name or the country code depending on the parameter
+
+        echo("<script>console.log('usr:country: ".$country."');</script>");
+        echo("<script>console.log('usr:type: ".$type."');</script>");
+        try {
+
+            if ($type=='code')
+            {
+                // if we want the code
+                $stmt = $this->_db->prepare('CALL sp_country_code(:c_name,@c_code)');
+                $stmt->bindParam(':c_name',$country,PDO::PARAM_STR,50);
+
+                // call the stored procedure
+                $stmt->execute();
+                $Results = $this->_db->query("SELECT @c_code AS Countrycode")->fetch(PDO::FETCH_ASSOC); 
+                $CountryCode = $Results['Countrycode'];
+                echo("<script>console.log('usr:return: ".$CountryCode."');</script>");
+                return $CountryCode;
+
+
+            } elseif ($type=='country')
+            {
+
+                // if we want the code
+                $stmt = $this->_db->prepare('CALL sp_country_name(:c_code,@c_name)');
+                $stmt->bindParam(':c_code',$country,PDO::PARAM_STR,50);
+
+                // call the stored procedure
+                $stmt->execute();
+                $Results = $this->_db->query("SELECT @c_name AS CountryName")->fetch(PDO::FETCH_ASSOC); 
+                $CountryName = $Results['CountryName'];
+                echo("<script>console.log('usr:return: ".$CountryName."');</script>");
+                return $CountryName;
+
+            }else {
+                return "failed" ;
+
+            }
+        } catch(PDOException $e) {
+            echo '<p class="bg-danger">'.$e->getMessage() .' -' .$country .' code: ' .$type. '</p>';
+        }
+
+    }
+
 
     public function updateUserProfile($aryFields, $memberid)
     {
 
-        $commit = true;
-        $proceed = true;
 
-        //Create a stdclass object to contain important information
-        $return = new stdclass;
-        $return->message = "Problem updating the profile";
-        $return->success = false;
-
-
-        // the update info statements
-
-
-        $q1 = 'UPDATE members 
-                SET username = :username,
-                email= :email
-                WHERE id= :memberid';
-
-
-        $q2 = 'UPDATE contacts
-             SET
-             first_name = :firstname,
-             last_name = :lastname,
-             email = :email,
-             address1 = :address1,
-             address2 = :address2,
-             city = :city,
-             country = :country,
-             postzipcode = :postzipcode 
-             WHERE id= :memberid';
-
-        try
-        {
-
-
-            //Initiate a transaction
-            $db->beginTransaction(); 
-
-            //Check the appointment is available before proceeding
-            $stmt1 = $this->_db->prepare($q1);
-            if($stmt1) 
-            {
-                $stmt->bindParam(':username', $p_username);
-                $stmt->bindParam(':email', $p_email);
-                $stmt->bindParam(':memberid', $p_memberid);
-
-                // set paramater values
-                $p_username = $aryFields [0]['username'];
-                $p_email = $aryFields [0]['email'];
-                $p_memberid = $memberid;
-                $stmt->execute();
-
-
-                if($proceed) 
-                {
-
-                    $stmt2 = $this->_db->prepare($q2);
-                    if($stmt2) {
-                        $stmt2->bindParam(':firstname', $p_firstname);
-                        $stmt2->bindParam(':lastname', $p_lastname);
-                        $stmt2->bindParam(':email', $p_email);
-                        $stmt2->bindParam(':address1', $p_address1);
-                        $stmt2->bindParam(':address2', $p_address2);
-                        $stmt2->bindParam(':city', $p_city);
-                        $stmt2->bindParam(':country', $p_country);
-                        $stmt2->bindParam(':postzipcode', $p_postzipcode);
-                        $stmt2->bindParam(':memberid', $p_memberid);
-
-
-                        // update a row
-                        $p_firstname = $aryFields [0]['firstname'];
-                        $p_lastname = $aryFields [0]['lastname'];
-                        $p_email = $aryFields [0]['email'];
-                        $p_lastname = $aryFields [0]['address2'];
-                        $p_lastname = $aryFields [0]['address2'];
-                        $p_lastname = $aryFields [0]['city'];
-                        $p_lastname = $aryFields [0]['country'];
-                        $p_memberid = $memberid;
-
-                        $stmt2->execute();
-
-                    }
-
-                }
-            }
-
-        } catch(PDOException $e) { //If the update or select query fail, we can't commit any changes to the database
-            $return->message = "Error Message:  " . $e->getMessage();
-            $commit = false;
-        } // end try
-
-        //Based on the value of $commit, decide whether to call rollback or commit
-        if(!$commit){
-            $this->_db->rollback();
-        } else {
-            $this->_db->commit();
-            $return->message = "Visibility updated successfully";
-            $return->success = true;
-        } // end commit
 
         //Send this information back to the JavaScript, encoded as json
         return json_encode($return);

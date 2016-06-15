@@ -20,7 +20,12 @@ switch ($i) {
     case 5:
         $url=$imgDIR . "bg6.jpg";
         break;
-
+    case 6:
+        $url=$imgDIR . "bg7.jpg";
+        break;
+     case 7:
+        $url=$imgDIR . "bg8.jpg";
+        break;
     default:
        $url=$imgDIR . "bg1.jpg";
 }  
@@ -53,7 +58,7 @@ echo "border-width: 2px;\n";
 echo "-webkit-transition: all 0.75s;\n";
 echo "-moz-transition: all 0.75s;\n";
 echo "transition: all 0.75s;\n";
-echo "height: 100%;\n";
+echo "height: 80%;\n";
 echo "}\n";
 
 ?>

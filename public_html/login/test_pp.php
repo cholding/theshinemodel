@@ -14,50 +14,14 @@ echo "we are in profile page --- ";
 //if( !$user->is_logged_in() ){ header('Location: login.php'); } 
 
 
+$Country=$user->getCountry('United States of America','code');
 
 
-    // this is not a submit so we collect info and populate fields
-    //        $stmt = $db->prepare('SELECT username FROM members WHERE username = :username');
-$memberid=$_SESSION['memberid'];
-    
-echo "This is member id " .$memberid;
-
-//$stmt = $db->prepare('SELECT first_name, last_name, email FROM contacts WHERE MemberID = :memberid');
-echo "SELECT first_name, last_name, username, email FROM contacts WHERE MemberID = :memberid";
-
-$stmt = $db->prepare('SELECT contacts.first_name, contacts.last_name,members.username, members.email FROM contacts INNER JOIN members ON contacts.MemberID = members.memberID WHERE members.memberID = :memberid');
-//
-$stmt->bindParam(':memberid',$memberid,PDO::PARAM_INT);
-
-try{
-    $stmt->execute();
-    echo "still ok";
-
-
-}catch(PDOException $e){
-    echo ErrorHandle($e);
-    
-}
-
-$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-$arrlength=count($result);
 echo "<br/><br/>";
 
-echo $arrlength;
+echo "the country is:".$Country;
 echo "<br/><br/>";
-print_r($result);
-echo "<br/><br/>";
-var_dump($result);
-echo "<br/><br/>";
-//echo "what !!";
-//
-//echo "<br/><br/>";
 
-echo $result [0]["first_name"];
-echo "<br/><br/>";
-echo $result [0]["last_name"];
-echo "<br/><br/>";
-echo $result [0]["email"];
 
 
 

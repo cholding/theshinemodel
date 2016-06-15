@@ -22,7 +22,7 @@ if( !$user->is_logged_in() ){ header('Location: login.php'); }
 $title = 'Member Page';
 
 //include header template
-require('layout/header_member.php'); 
+require('layout/header.php'); 
 ?> 
 <nav class="navbar navbar-custom navbar-static-top">
 
@@ -34,14 +34,14 @@ require('layout/header_member.php');
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand kimage"><img src="/images/shine.png" alt="SHINE" style="height:26px;margin-top:0,background-color:grey"></a>	
+                <a class="navbar-brand kimage"><img src="/images/shine.png" alt="SHINE" style="height:20px;margin-top:0,background-color:grey"></a>	
             </div>	
 
             <div class="collapse navbar-collapse">	
                 <ul class="nav navbar-nav">		
                     <li class="active"><a href="#topContainer">Home</a></li>	
                     <li><a href="#details">About</a></li>	
-                    <li><a href="http://www.theshinemodel.com/blog/">Goto blog</a></li>	
+                    <li><a href="http://www.theshinemodel.com/blog/" target="_blank">Goto blog</a></li>	
                     <li><a class="btn btn-info btn-outline" href="/login/profilepage.php">Profile</a></li>	
                 </ul>	
                 <form class="navbar-form navbar-right" Method="post" action="/login/logout.php">	
@@ -52,145 +52,37 @@ require('layout/header_member.php');
                     <button name="submit" type="submit" class="btn btn-success">Log Out</ button>	
 
                 </form>	
-                
+
             </div>	
         </div>	<!-- END container -->
     </div> <!-- END navbar -->
 </nav>	
-<div class="container_st">	 <!--this is the image container -->
-    <!-- Content -->
-    <section id="wrapper">
-        <hgroup>
-            <h1 style="color:white";>Sustainable Health Inspired by Nature and Evolution</h1>
-        </hgroup>
-        <div id="container">
-            <div class="grid">
-                <div class="imgholder">
-                    <a href="http://theshinemodel.com" target="_blank">
-                        <img src="/images/bg5.jpg" alt="HTML tutorial" >
-                    </a>
+<div class="container_bg">	<!-- this is the image container-->
+    <div class="form_container">
+        <div class="container">
 
-                </div>
-                <strong>RELAX</strong>
-                <p>In awe of Nature...</p>
+            <div class="row">
+                <div id="loginbox" style="margin-top:20px;margin-left:20px;" class="mainbox col-md-12 col-md-offset-4 col-sm-12 col-sm-offset-6">
+<!--                    <div class="panel panel-default" style="width:400px; height:400px;margin:10px;">-->
 
-            </div>
-            <div class="grid">
-                <div class="imgholder">
-                    <img src="/images/bg3.jpg" />
+                        <img src="../images/SHINEmap.png" width="992" height="639" border="0" usemap="#map" style="opacity:0.8"/>
+
+                        <map name="map">
+
+                            <area shape="rect" coords="13,124,133,162" alt="evolution" href="https://en.wikipedia.org/wiki/Evolution" target="_blank" />
+                            <area shape="rect" coords="871,264,971,298" alt="Health" href="https://en.wikipedia.org/wiki/Health" target="_blank"/>
+                        </map>
+
+
+<!--                    </div>-->
                 </div>
-                <strong>Bridge to Heaven</strong>
-                <p>Where is the bridge lead to?</p>
-                <div class="meta">by SigitEko</div>
             </div>
-            <div class="grid">
-                <div class="imgholder">
-                    <img src="http://www.inwebson.com/demo/blocksit-js/demo2/images/img15.jpg" />
-                </div>
-                <strong>Autumn</strong>
-                <p>The fall of the tree...</p>
-                <div class="meta">by Lars van de Goor</div>
-            </div>
-            <div class="grid">
-                <div class="imgholder">
-                    <img src="http://www.inwebson.com/demo/blocksit-js/demo2/images/img23.jpg" />
-                </div>
-                <strong>Winter Whisper</strong>
-                <p>Winter feel...</p>
-                <div class="meta">by Andrea Andrade</div>
-            </div>
-            <div class="grid">
-                <div class="imgholder">
-                    <img src="http://www.inwebson.com/demo/blocksit-js/demo2/images/img17.jpg" />
-                </div>
-                <strong>Light</strong>
-                <p>The only shinning light...</p>
-                <div class="meta">by Lars van de Goor</div>
-            </div>
-            <div class="grid">
-                <div class="imgholder">
-                    <img src="http://www.inwebson.com/demo/blocksit-js/demo2/images/img22.jpg" />
-                </div>
-                <strong>Rooster's Ranch</strong>
-                <p>Rooster's ranch landscape...</p>
-                <div class="meta">by Andrea Andrade</div>
-            </div>
-            <div class="grid">
-                <div class="imgholder">
-                    <img src="http://www.inwebson.com/demo/blocksit-js/demo2/images/img16.jpg" />
-                </div>
-                <strong>Autumn Light</strong>
-                <p>Sun shinning into forest...</p>
-                <div class="meta">by Lars van de Goor</div>
-            </div>
-            <div class="grid">
-                <div class="imgholder">
-                    <img src="http://www.inwebson.com/demo/blocksit-js/demo2/images/img21.jpg" />
-                </div>
-                <strong>Yellow cloudy</strong>
-                <p>It is yellow cloudy...</p>
-                <div class="meta">by Zsolt Zsigmond</div>
-            </div>
-            <div class="grid">
-                <div class="imgholder">
-                    <img src="http://www.inwebson.com/demo/blocksit-js/demo2/images/img28.jpg" />
-                </div>
-                <strong>Herringfleet Mill</strong>
-                <p>Just a herringfleet mill...</p>
-                <div class="meta">by Ian Flindt</div>
-            </div>
-            <div class="grid">
-                <div class="imgholder">
-                    <img src="http://www.inwebson.com/demo/blocksit-js/demo2/images/img2.jpg" />
-                </div>
-                <strong>Battle Field</strong>
-                <p>Battle Field for you...</p>
-                <div class="meta">by Andrea Andrade</div>
-            </div>
-            <div class="grid">
-                <div class="imgholder">
-                    <img src="http://www.inwebson.com/demo/blocksit-js/demo2/images/img24.jpg" />
-                </div>
-                <strong>Sundays Sunset</strong>
-                <p>Beach view sunset...</p>
-                <div class="meta">by Robert Strachan</div>
-            </div>
-            <div class="grid">
-                <div class="imgholder">
-                    <img src="http://www.inwebson.com/demo/blocksit-js/demo2/images/img19.jpg" />
-                </div>
-                <strong>Sun Flower</strong>
-                <p>Good Morning Sun flower...</p>
-                <div class="meta">by Zsolt Zsigmond</div>
-            </div>
-            <div class="grid">
-                <div class="imgholder">
-                    <img src="http://www.inwebson.com/demo/blocksit-js/demo2/images/img5.jpg" />
-                </div>
-                <strong>Beach</strong>
-                <p>Something on beach...</p>
-                <div class="meta">by unknown</div>
-            </div>
-            <div class="grid">
-                <div class="imgholder">
-                    <img src="http://www.inwebson.com/demo/blocksit-js/demo2/images/img25.jpg" />
-                </div>
-                <strong>Flowers</strong>
-                <p>Hello flowers...</p>
-                <div class="meta">by R A Stanley</div>
-            </div>
-            <div class="grid">
-                <div class="imgholder">
-                    <img src="http://www.inwebson.com/demo/blocksit-js/demo2/images/img20.jpg" />
-                </div>
-                <strong>Alone</strong>
-                <p>Lonely plant...</p>
-                <div class="meta">by Zsolt Zsigmond</div>
-            </div> 
         </div>
 
-    </section>
+    </div>
 </div>
+</div>
+
 <?php 
 //include header template
 require('layout/footer.php'); 

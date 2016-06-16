@@ -1,5 +1,5 @@
 <?php
-$i = mt_rand(0,5);
+$i = mt_rand(0,7);
 $imgDIR = "/images/";
 switch ($i) {
     case 0:

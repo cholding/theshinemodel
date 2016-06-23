@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>HTML5 canvas rectangle</title>    
+<script>
+    function draw() {
+        var canvas = document.getElementById('myCanvas');
+        var ctx = canvas.getContext('2d');
+        var i =0
+        do while (i<=1000){
+        ctx.fillStyle = "cadetblue";
+        ctx.fillRect(0, 0, 100, 100);
+            i==i+100
+        }
+    }    
+</script>
+</head>
+    
+<body onload="draw();">
+    <canvas id="myCanvas" width="250" height="150">
+    </canvas>
+</body>
+</html>

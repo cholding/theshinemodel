@@ -43,16 +43,21 @@
 
     <head>	
         <meta charset="utf-8">	
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">	    <meta name="viewport" content="width=device-width, initial-scale=1">	
-        <title>SHINE - fast knowledge</title>	!
-        <!-- Bootstrap -->	
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">	    
+        <meta name="viewport" content="width=device-width, initial-scale=1">	
+        <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+        <title>SHINE - Ultimate Health</title>	!
+        
+        
+         
+           <!-- Bootstrap -->	
         <link href="css/bootstrap.min.css" rel="stylesheet">	!
         <link href="css/bootstrapkwk.css" rel="stylesheet">  !
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->	
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->	    <!--[if lt IE 9]>	
-<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></ script>	
-<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/ respond.min.js"></script>	    <![endif]-->	
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></ script>	
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/ respond.min.js"></script>	    <![endif]-->	
         <link rel="stylesheet" type="text/css" href="layout/style/index.css">
 
     </head>	
@@ -152,6 +157,7 @@
 
     <div class="container contentContainer" id="details">	
 
+<!--
         <div class="row" class="center">	
 
             <h1 class="center title">Why the SHINE App Is Awesome</h1>	
@@ -159,19 +165,20 @@
 
 
         </div>	
+-->
 
         <div class="row  marginBottom">	
 
             <div class="col-md-4 marginTop">	
                 <h2><span class="glyphicon glyphicon-cloud"></span> Vision</h2>	
-                <p>To be the best you can be for the rest of your life. We believe Health is something you carry with you always and forever - not let's do a bit of health for the next month</p>	
+                <p>To be the best you can be for the rest of your life. We believe Health is something you carry with you always and forever - not 'let's do a bit of health for the next month'</p>	
                 <a class="btn btn-success marginTop" href="login/index.php">Sign Up! (please)</a>	
 
             </div>	
 
             <div class="col-md-4 marginTop">	
                 <h2><span class="glyphicon glyphicon-music"></span> Mission</h2>	
-                <p>SHINE will educate, illuminate and empower people to live in a body that SHINES, to have mental and intellectual capcities that SHINE and to have comminication and relationships that SHINE. SHINE is to do just that. Our mission is to help people be the best they can be - physically, mentally, emotionally, spiritually for themselves and for all the precious people around them</p>	
+                <p>SHINE will educate, illuminate and empower people to live in a body that SHINES, to have mental and intellectual capacities that SHINE and to have communication and relationships that SHINE. SHINE is to do just that. Our mission is to help people be the best they can be - physically, mentally, emotionally, spiritually for themselves and for all the precious people around them</p>	
                 <a class="btn btn-success marginTop" href="login/index.php">Sign Up!</a>
 
             </div>	
@@ -187,6 +194,7 @@
 
     </div>	
 
+<!--
     <div class="container contentContainer" id="footer">	
 
         <div class="row">	
@@ -201,6 +209,7 @@
 
 
     </div>	
+-->
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->

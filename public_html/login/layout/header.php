@@ -9,13 +9,13 @@
     <!-- Bootstrap Form Helpers -->
     <script src="../../BootstrapFormHelpers/dist/js/bootstrap-formhelpers.min.js"></script>
     <link href="../../BootstrapFormHelpers/dist/css/bootstrap-formhelpers.min.css" rel="stylesheet">
-        <style type="text/css">
+    <style type="text/css">
       <?php
          /* Include the style sheet */
          require_once("layout/style/sheet.dcss.php");
       ?>
     </style>
-
+    <link rel="icon" href="../images/favicon.ico" type="image/x-icon" />
 </head
 
 <body>

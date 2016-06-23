@@ -66,18 +66,16 @@ require('layout/header.php');
                     <!--                    <div class="panel panel-default" style="width:400px; height:400px;margin:10px;">-->
 
 
-                    <img src="../images/shinemm1.png" width="1080" height="696" border="0" usemap="#map" />
+ 
+                    <img src="..\images\Where1.png" width="1080" height="501" border="0" usemap="#map" />
 
                     <map name="map">
-
-                        <area shape="rect" coords="16,131,142,179" alt="Evolution"  nohref="nohref" href="https://en.wikipedia.org/wiki/Evolution" / target="_blank">
-                        <area shape="rect" coords="37,465,154,508" alt="Nature"  nohref="nohref" href="https://en.wikipedia.org/wiki/Nature" / target="_blank">
-                        <area shape="rect" coords="817,500,936,544" alt="Inspired"  nohref="nohref" href="http://www.brainyquote.com/quotes/topics/topic_inspirational.html" / target="_blank">
-                        <area shape="rect" coords="949,282,1063,328" alt="health"  nohref="nohref" href="https://en.wikipedia.org/wiki/Health"/ target="_blank">
-                        <area shape="rect" coords="807,18,960,60" alt="Sustainable"  nohref="nohref" href="http://sustainablehealthcare.org.uk/"/ target="_blank">
-                        <area shape="rect" coords="369,280,620,344" alt="The SHINE"  nohref="nohref" href="http://www.theshinemodel.com" / target="_blank">
+                       
+                        <area shape="rect" coords="51,7,272,174" alt="Nature" href="http://www.brainyquote.com/quotes/topics/topic_nature.html" target="_blank" />
+                        <area shape="rect" coords="736,376,962,466" alt="TED" href="https://www.ted.com/" target="_blank" />
+                        <area shape="rect" coords="846,75,1070,193" alt="Courses" href="https://www.udemy.com/document-your-thoughts-like-a-genius-mind-mapping-xmind/?couponCode=FRIENDSFAMILIY" target="_blank" />
+                        <area shape="rect" coords="7,362,230,496" alt="PLAY" href="https://www.ted.com/playlists/383/the_importance_of_play" target="_blank" />
                     </map>
-
                     <!--                    </div>-->
                 </div>
             </div>

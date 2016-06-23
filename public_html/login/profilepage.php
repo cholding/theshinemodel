@@ -197,11 +197,11 @@ require('layout/header.php');
     <div class="form_container">
         <div class="container-fluid">
 
-            <div class="row">
-
-                <div id="loginbox" style="margin-top:50px;margin-left:50px;" class="mainbox col-md-6 col-md-offset-0 col-sm-12 col-sm-offset-1">
-                    <div class="panel panel-default" style="width:1000px;margin:15px;">
-
+            <div class="row-fluid">
+                    <div class="col-lg-10 col-md-11 col-sm-2 col-xs-12">
+<!--                <div id="loginbox" style="margin-top:50px;margin-left:50px;" class="mainbox col-md-6 col-md-offset-0 col-sm-12 col-sm-offset-1">-->
+                    <div class="panel panel-default" style="width:1000px;margin:15px;>
+                    
                         <form role="form" method="post" action="" autocomplete="off">
                             <div style="margin:15px;">
                                 <h2>Profile Page</h2>
@@ -221,7 +221,7 @@ require('layout/header.php');
                                 }
                                 ?>
                             </div>
-                            <div class="row row_margin" >
+                            <div class="row row_margin row-fluid" >
                                 <div class="col-xs-4">
                                     <div class="form-group" style="margin:15px;">
                                         <label for="first_name">First Name</label>
@@ -237,7 +237,7 @@ require('layout/header.php');
                                     </div>
                                 </div>
                             </div>
-                            <div class="row row_margin">
+                            <div class="row row_margin row-fluid">
 
                                 <div class="col-xs-6">
                                     <div class="form-group" style="margin:15px;">
@@ -265,7 +265,7 @@ require('layout/header.php');
                                 <input type="text" name="add2" id="add2" class="form-control input-sm" placeholder="Address Line 2" value="<?php if(!isset($error)){echo $login_add2; } ?>" onkeyup="myFunction(this.value)" tabindex="7">
                             </div>
 
-                            <div class="row row_margin">
+                            <div class="row row_margin row-fluid">
                                 <div class="col-xs-4 col-sm-4 col-md-4">
                                     <div class="form-group" style="margin:15px;">
                                         <label for="postcode">Post/Zip Code</label>
@@ -305,7 +305,7 @@ require('layout/header.php');
                                 </div>
                             </div> 
                             <!-- this is the end reset button -->
-                            <div class="row row_margin">
+                            <div class="row row_margin  row-fluid">
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group" style="margin:15px;">
                                         <a class="btn btn-info btn-outline btn-xsm" href='reset.php'  tabindex="6"><b>Reset Password</b></a>
@@ -314,7 +314,7 @@ require('layout/header.php');
 
                             </div>
 
-                            <div class="row row_margin">
+                            <div class="row row_margin row-fluid">
                                 <div class="col-xs-4 col-md-4"  style="margin:15px;">
                                     <input id="update" type="submit" name="update" value="Update" class="btn btn-primary btn-block btn-lg" tabindex="7" disabled="disabled">
                                 </div>

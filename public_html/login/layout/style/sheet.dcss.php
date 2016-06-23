@@ -34,7 +34,7 @@ $url_st=$imgDIR . "cave.jpg";
 
 echo ".container_bg { \n";
 echo "background-image:url(\"",$url,"\");\n";
-echo "height:1080px;\n";
+echo "height:100%;\n";
 echo "width:100%;\n";
 echo "background-size:cover;\n";
 echo "background-position: 0,0;\n";

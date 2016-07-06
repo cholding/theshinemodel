@@ -7,7 +7,7 @@ $handler = new error_handler(NULL,1,1,'colin-h@dircon.co.uk',SITE_ROOT.'/global/
 set_error_handler(array(&$handler, "handler"));
 
 
-require(SITE_ROOT.'/login/includes/config.php'); 
+require(SITE_ROOT."/login/includes/config.php"); 
 require_once(SITE_ROOT. '/login/classes/shine_email.php');
 
 //require_once('../includes/PHPMailer/class.phpmailer.php');
@@ -22,7 +22,7 @@ if( !$user->is_logged_in() ){ header('Location: login.php'); }
 $title = 'Member Page';
 
 //include header template
-require(SITE_ROOT.'layout/header.php'); 
+require('layout/header.php'); 
 ?> 
 
 <div class="container">

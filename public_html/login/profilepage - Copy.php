@@ -200,7 +200,7 @@ require('layout/header.php');
             <div class="row">
 
                 <div id="loginbox" style="margin-top:50px;margin-left:50px;" class="mainbox col-md-6 col-md-offset-0 col-sm-12 col-sm-offset-1">
-                    <div class="panel panel-default" style="width:1000px;padding:15px;">
+                    <div class="panel panel-default" style="width:1000px;margin:15px;">
 
                         <form role="form" method="post" action="" autocomplete="off">
                             <div style="margin:15px;">
@@ -253,7 +253,7 @@ require('layout/header.php');
                                 </div>
 
                             </div>
-                            
+
                             <div class="form-group" style="margin:15px;">
                                 <label for="add1">Address Line 1</label>
                                 <input type="text" name="add1" id="add1" class="form-control input-sm" placeholder="Address Line1" value="<?php if(!isset($error)){ echo $login_add1;} ?>" onchange="myFunction(this.value)" tabindex="6">
@@ -280,8 +280,8 @@ require('layout/header.php');
                                         <input type="text" name="city" id="city" class="form-control input-sm" placeholder="City" value="<?php if(!isset($error)){echo $login_city; } ?>" onkeyup="myFunction(this.value)" tabindex="9">
                                     </div>
                                 </div>
-
-                                <!--                            <div class="row row_margin">-->
+                            
+<!--                            <div class="row row_margin">-->
                                 <div class="col-xs-4 col-sm-4 col-md-4" style="margin-top: 20px">
 
                                     <div class="country bfh-selectbox bfh-countries" data-name='country' data-country="<?php if(!isset($error)){echo $login_countrycode; } ?>" data-flags="true" onchange="myFunction(this.value)">
@@ -311,7 +311,6 @@ require('layout/header.php');
                                         <a class="btn btn-info btn-outline btn-xsm" href='reset.php'  tabindex="6"><b>Reset Password</b></a>
                                     </div>
                                 </div>
-                                
 
                             </div>
 

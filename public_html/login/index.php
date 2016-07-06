@@ -1,202 +1,216 @@
-<?php 
-//set up error handler
 
+<?php
 defined('SITE_ROOT')? null: define('SITE_ROOT',$_SERVER['DOCUMENT_ROOT']);
 
 include(SITE_ROOT.'/global/class.error_handler.php');
-$handler = new error_handler(NULL,1,1,'colin-h@dircon.co.uk',SITE_ROOT.'global/error_logs/test.com.txt');
+$handler = new error_handler(NULL,1,1,'colin-h@dircon.co.uk',SITE_ROOT.'/global/error_logs/test.com.txt');
 set_error_handler(array(&$handler, "handler"));
+//
 
 //include config
 require_once(SITE_ROOT.'/login/includes/config.php');
+// echo 'this is login php';
+//check if already logged in move to home page
+if( $user->is_logged_in() ){ header('location: login/memberpage.php'); } 
 
-
-//if logged in redirect to members page
-if( $user->is_logged_in() ){ header('Location: memberpage.php'); } 
-
-//if form has been submitted process it
+////process login form if submitted
 if(isset($_POST['submit'])){
+    $username = $_POST['username'];
+    $password = $_POST['password'];
 
-    //very basic validation
-    if(strlen($_POST['username']) < 3){
-        $error[] = 'Username is too short.';
-    } else {
-        $stmt = $db->prepare('SELECT username FROM members WHERE username = :username');
-        $stmt->execute(array(':username' => $_POST['username']));
-        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+    if($user->login($username,$password)){ 
+        $_SESSION['username']=$username;
+        $_SESSION['memberid']=$user->getuserid($username);
+        $_SESSION['fullname']=$user->getfullname($_SESSION['memberid']);
+        $_SESSION['email']=$user->getemail($_SESSION['memberid']);
 
-        if(!empty($row['username'])){
-            $error[] = 'Username provided is already in use.';
-        }
+        if($user->gettype($username)>1) {
 
-    }
-    //Password validation
-    if(strlen($_POST['password']) < 3){
-        $error[] = 'Password is too short.';
-    }
-
-    if(strlen($_POST['passwordConfirm']) < 3){
-        $error[] = 'Confirm password is too short.';
-    }
-
-    if($_POST['password'] != $_POST['passwordConfirm']){
-        $error[] = 'Passwords do not match.';
-    }
-
-    //email validation
-    if(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)){
-        $error[] = 'Please enter a valid email address';
-    } else {
-        $stmt = $db->prepare('SELECT email FROM members WHERE email = :email');
-        $stmt->execute(array(':email' => $_POST['email']));
-        $row = $stmt->fetch(PDO::FETCH_ASSOC);
-
-        if(!empty($row['email'])){
-            $error[] = 'Email provided is already in use.';
-        }
-
-    }
-
-
-    //if no errors have been created carry on
-    if(!isset($error)){
-
-        //hash the password
-        $hashedpassword = $user->password_hash($_POST['password'], PASSWORD_BCRYPT);
-
-        //create the activasion code
-        $activasion = md5(uniqid(rand(),true));
-
-        try {
-
-            //insert into database with a prepared statement
-            $stmt = $db->prepare('INSERT INTO members (username,password,email,active) VALUES (:username, :password, :email, :active)');
-            $stmt->execute(array(
-                ':username' => $_POST['username'],
-                ':password' => $hashedpassword,
-                ':email' => $_POST['email'],
-                ':active' => $activasion
-            ));
-            $id = $db->lastInsertId('memberID');
-
-            // insert into contacts
-            $stmt = $db->prepare('INSERT INTO contacts (MemberID,first_name,last_name,email) VALUES (:memberid,:firstname,:lastname, :email)');
-
-            $stmt->execute(array(
-                ':memberid' => $id,
-                ':firstname' => $_POST['f_name'],
-                ':lastname' => $_POST['l_name'],
-                ':email' => $_POST['email']
-            ));
-
-
-
-            //send email
-            $to = $_POST['email'];
-            $subject = "Registration Confirmation";
-            $body = "Thank you for registering at TheShineModel.com.\n\n Username:".$_POST['username']. "\n\n To activate your account, please click on this link:\n\n ".DIR."activate.php?x=$id&y=$activasion\n\n Regards Site Admin \n\n";
-            $additionalheaders = "From: <".SITEEMAIL.">\r\n";
-            $additionalheaders .= "Reply-To: $".SITEEMAIL."";
-            mail($to, $subject, $body, $additionalheaders);
-
-            //redirect to index page
-            header('Location: index.php?action=joined');
+            header('Location: production.php');
             exit;
-
-            //else catch the exception and show the error.
-        } catch(PDOException $e) {
-            $error[] = $e->getMessage();
+        } else {
+            header('Location: memberpage.php');
+            exit;
         }
-
+    } else {
+        $error[] = 'Wrong username or password or your account has not been activated.';
     }
 
-}
-
+}//end if submit
 //define page title
-$title = 'SHINE Login';
+$title = 'Home Page';
 
 //include header template
-require('layout/header.php'); 
+require(SITE_ROOT.'/layout/header.php');     
+
 ?>
 
-<div class="container_bg">
+<nav class="navbar navbar-fixed-top navbar-light navbar-xs " >
+    <div class="container-fluid">
+        <button class="navbar-toggler hidden-sm-up pull-xs-right" type="button" data-toggle="collapse" data-target="#mainmenu"> ☰</button>
 
-    <div "form_container">
-        <div class="container-fluid">
+        <a class="navbar-brand kimage"><img src="../images/shine.png" alt="SHINE" style="height:20px;margin-top:0,background-color:grey"></a>
+        <div class="collapse navbar-toggleable-xs" id="mainmenu">
+            <ul class="nav navbar-nav pull-md-left">
+                <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="http://www.theshinemodel.com/blog/" class="nav-link active">Go to blog</a></li>
+                <li class="nav-item"><a class="btn btn-info btn-sm btn-outline" href="/login/profilepage.php" class="nav-link">Profile</a></li>
 
-            <div class="row">
+            </ul>
+            <div class="btn-group pull-md-right" style="display:inline;">
+                <div class="fill">
+                    <form class="navbar-form navbar-right form-inline" Method="post" action="/login/login.php">	
+                        <div class="form-group form-group-sm">	
+                            <input name="username" type="text" placeholder="User Name" class="form-control input-sm" />	
+                        </div>	
+                        <div class="form-group form-group-sm">	
+                            <input name="password" type="password" placeholder="Password" class="form-control input-sm" />	
+                        </div>	
 
-                <div id="loginbox" style="margin-top:50px;margin-left:50px;" class="mainbox col-md-3 col-md-offset-0 col-sm-12 col-sm-offset-1">
-                    <div class="panel panel-default" style="width:1200px;margin:15px;">
+                        <button name="submit" type="submit" class="btn btn-sm btn-success">Log In</ button>
 
-                        <form role="form" method="post" action="" autocomplete="off">
-                            <div style="margin:15px;">
-                                <h2>Please Sign Up</h2>
-                                <p>Already a member? <a href='login.php'>Login</a> <a href='/index.php'><b>HOME</b></a></p>
 
-                                <?php
-                                //check for any errors and then display
-                                if(isset($error)){
-                                    foreach($error as $error){
-                                        echo '<p class="bg-danger">'.$error.'</p>';
-                                    }
-                                }
-
-                                //if action is joined show sucess
-                                if(isset($_GET['action']) && $_GET['action'] == 'joined'){
-                                    echo "<h2 class='bg-success'>Registration successful, please check your email to activate your account.</h2>";
-                                }
-                                ?>
-                            </div>
-                            <div class="row">
-                                <div class="col-xs-4 col-sm-4 col-md-4">
-                                    <div class="form-group" style="margin:15px;">
-                                        <input type="text" name="f_name" id="first_name" class="form-control input-lg" placeholder="First Name" value="<?php if(isset($error)){ echo $_POST['f_name']; } ?>" tabindex="1">
-                                    </div>
-                                </div>
-                                <div class="col-xs-4 col-sm-4 col-md-4">
-                                    <div class="form-group" style="margin:15px;">
-                                        <input type="text" name="m_name" id="middlename" class="form-control input-lg" placeholder="Middle Name" value="<?php if(isset($error)){ echo $_POST['m_name']; } ?>" tabindex="2">
-                                    </div>
-                                </div>
-                                <div class="col-xs-4 col-sm-4 col-md-4">
-                                    <div class="form-group" style="margin:15px;">
-                                        <input type="text" name="l_name" id="last_name" class="form-control input-lg" placeholder="Last Name" value="<?php if(isset($error)){ echo $_POST['l_name']; } ?>" tabindex="3">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group" style="margin:15px;">
-                                <input type="text" name="username" id="username" class="form-control input-lg" placeholder="User Name" value="<?php if(isset($error)){ echo $_POST['username']; } ?>" tabindex="4">
-                            </div>
-                            <div class="form-group"  style="margin:15px;">
-                                <input type="email" name="email" id="email" class="form-control input-lg" placeholder="Email Address" value="<?php if(isset($error)){ echo $_POST['email']; } ?>" tabindex="5">
-                            </div>
-                            <div class="row">
-                                <div class="col-xs-6 col-sm-6 col-md-6">
-                                    <div class="form-group" style="margin:15px;">
-                                        <input type="password" name="password" id="password" class="form-control input-lg" placeholder="Password" tabindex="6">
-                                    </div>
-                                </div>
-                                <div class="col-xs-6 col-sm-6 col-md-6">
-                                    <div class="form-group"  style="margin:15px;">
-                                        <input type="password" name="passwordConfirm" id="passwordConfirm" class="form-control input-lg" placeholder="Confirm Password" tabindex="7">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-xs-6 col-md-6"  style="margin:15px;"><input type="submit" name="submit" value="Register" class="btn btn-primary btn-block btn-lg" tabindex="8"></div>
-                            </div>
-                        </form>
-                    </div>
+                    </form>	
                 </div>
             </div>
         </div>
     </div>
 
+</nav>
 
 
 
+<!--
+<div class="container contentContainer" id="topContainer">	
+<div class="row">
+<h1 class="center title overlay "style="opacity:0.7;background-color:grey;"Welcome to SHINE <br><p style="font-size:.8em"> Sustainable Health Inspired by Nature and Evolution</p></h1> 
+
+</div>
+-->
+
+
+
+<!--Carousel-->
+<div id="myCarousel" class="carousel slide carousel-fade" data-ride="carousel" data-interval="4000"><!-- If this doesn't work, paste this data-rider="carousel" after "carousel"-->
+    <!--Indicators--> 
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1" ></li>
+        <li data-target="#myCarousel" data-slide-to="2" ></li>
+        <li data-target="#myCarousel" data-slide-to="3" ></li>
+        <li data-target="#myCarousel" data-slide-to="4" ></li>
+    </ol>
+
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="../images/bg1.jpg" alt="Headphones" class="img-responsive">
+
+        </div>
+
+        <div class="carousel-item">
+            <img src="../images/bg2.jpg" alt="watch" class="img-responsive">
+        </div>
+
+        <div class="carousel-item">
+            <img src="../images/bg3.jpg" alt="Corridor" class="img-responsive">
+        </div>
+        <div class="carousel-item">
+            <img src="../images/bg4.jpg" alt="Corridor" class="img-responsive">
+        </div>
+        <div class="carousel-item">
+            <img src="../images/bg6.jpg" alt="Corridor" class="img-responsive">
+        </div>
+
+
+    </div>
+    <a class="carousel-control left" href="#myCarousel" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control right" href="#myCarousel" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+
+<div class="container contentContainer" id="details">	
+
+    <!--
+<div class="row" class="center">	
+
+<h1 class="center title">Why the SHINE App Is Awesome</h1>	
+<p class="lead center">The SHINE app will inspire you to embrace your health 24 hours a day - awake or asleep stay inspired</p>	
+
+
+</div>	
+-->
+
+
+    <!--
+<div class="row  marginBottom" >	
+
+<div class="col-md-4 marginTop">	
+<h2><span class="glyphicon glyphicon-cloud"></span> Vision</h2>	
+<p>To be the best you can be for the rest of your life. We believe Health is something you carry with you always and forever - not 'let's do a bit of health for the next month'</p>	
+<a class="btn btn-success marginTop" href="login/index.php">Sign Up! (please)</a>	
+
+</div>	
+
+<div class="col-md-4 marginTop">	
+<h2><span class="glyphicon glyphicon-music"></span> Mission</h2>	
+<p>SHINE will educate, illuminate and empower people to live in a body that SHINES, to have mental and intellectual capacities that SHINE and to have communication and relationships that SHINE. SHINE is to do just that. Our mission is to help people be the best they can be - physically, mentally, emotionally, spiritually for themselves and for all the precious people around them</p>	
+<a class="btn btn-success marginTop" href="login/index.php">Sign Up!</a>
+
+</div>	
+
+<div class="col-md-4 marginTop">	
+<h2><span class="glyphicon glyphicon-pencil"></span> Charity</h2>	
+<p>SHINE is committed to education and enlightenment - and not just for people who can afford it. We are committed to using the product and knowledge, as well as a percentage of profits, to help and educate the next generations - they are the future and need the education not to repeat the mistakes of previous generations but more importantly to build on the incredible advances provided by previous generations</p>	
+<a class="btn btn-success marginTop" href="login/index.php">Sign Up!</a>
+
+</div>	
+
+</div>	
+-->
+    <div class="mainPitch" style="position:absolute; top:400px;">
+        <div class="container panel">
+            <div class="row">
+                <div class="col-xs-12" style="text-align:center;">
+                    <div class="fixedcaption">
+                        <h1>SHINE</h1>
+                        <h3>Sustainable Health Inspired by Nature and Evolution </h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--
+</div>
+</div>	
+-->
+<!--
+<div class="banner-wrapper">
+    <div class="banner-image"></div>
+    <div class ="absolute-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    SOME VERY LONG TEXT IN AN ABSOLUTE DIV
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+-->
+
+    <!-- Just include this Js file -->
+    <script src="js/jquery.carousel.fullscreen.js"></script> 
+
+    <script>   
+        //$(".contentContainer").css("min-height",$(window).height());  
+        $(".contentContainer").css("width",1920);
+    </script>
     <?php 
     //include header template
     require('layout/footer.php'); 

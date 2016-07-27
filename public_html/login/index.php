@@ -11,7 +11,7 @@ set_error_handler(array(&$handler, "handler"));
 require_once(SITE_ROOT.'/login/includes/config.php');
 // echo 'this is login php';
 //check if already logged in move to home page
-if( $user->is_logged_in() ){ header('location: login/memberpage.php'); } 
+if( $user->is_logged_in() ){ header('location: memberpage.php'); } 
 
 ////process login form if submitted
 if(isset($_POST['submit'])){
@@ -55,7 +55,7 @@ require(SITE_ROOT.'/layout/header.php');
                 <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
                 <li class="nav-item"><a href="#" class="nav-link">About</a></li>
                 <li class="nav-item"><a href="http://www.theshinemodel.com/blog/" class="nav-link active">Go to blog</a></li>
-                <li class="nav-item"><a class="btn btn-info btn-sm btn-outline" href="/login/profilepage.php" class="nav-link">Profile</a></li>
+                <!--                <li class="nav-item"><a class="btn btn-info btn-sm btn-outline" href="/login/profilepage.php" class="nav-link">Profile</a></li>-->
 
             </ul>
             <div class="btn-group pull-md-right" style="display:inline;">
@@ -89,51 +89,51 @@ require(SITE_ROOT.'/layout/header.php');
 </div>
 -->
 
+<div class="fill">
 
+    <!--Carousel-->
+    <div id="myCarousel" class="carousel slide carousel-fade" data-ride="carousel" data-interval="4000"><!-- If this doesn't work, paste this data-rider="carousel" after "carousel"-->
+        <!--Indicators--> 
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1" ></li>
+            <li data-target="#myCarousel" data-slide-to="2" ></li>
+            <li data-target="#myCarousel" data-slide-to="3" ></li>
+            <li data-target="#myCarousel" data-slide-to="4" ></li>
+        </ol>
 
-<!--Carousel-->
-<div id="myCarousel" class="carousel slide carousel-fade" data-ride="carousel" data-interval="4000"><!-- If this doesn't work, paste this data-rider="carousel" after "carousel"-->
-    <!--Indicators--> 
-    <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1" ></li>
-        <li data-target="#myCarousel" data-slide-to="2" ></li>
-        <li data-target="#myCarousel" data-slide-to="3" ></li>
-        <li data-target="#myCarousel" data-slide-to="4" ></li>
-    </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="../images/bg1.jpg" alt="Headphones" class="img-responsive">
 
-    <div class="carousel-inner">
-        <div class="carousel-item active">
-            <img src="../images/bg1.jpg" alt="Headphones" class="img-responsive">
+            </div>
+
+            <div class="carousel-item">
+                <img src="../images/bg2.jpg" alt="watch" class="img-responsive">
+            </div>
+
+            <div class="carousel-item">
+                <img src="../images/bg3.jpg" alt="Corridor" class="img-responsive">
+            </div>
+            <div class="carousel-item">
+                <img src="../images/bg4.jpg" alt="Corridor" class="img-responsive">
+            </div>
+            <div class="carousel-item">
+                <img src="../images/bg6.jpg" alt="Corridor" class="img-responsive">
+            </div>
+
 
         </div>
-
-        <div class="carousel-item">
-            <img src="../images/bg2.jpg" alt="watch" class="img-responsive">
-        </div>
-
-        <div class="carousel-item">
-            <img src="../images/bg3.jpg" alt="Corridor" class="img-responsive">
-        </div>
-        <div class="carousel-item">
-            <img src="../images/bg4.jpg" alt="Corridor" class="img-responsive">
-        </div>
-        <div class="carousel-item">
-            <img src="../images/bg6.jpg" alt="Corridor" class="img-responsive">
-        </div>
-
-
+        <a class="carousel-control left" href="#myCarousel" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control right" href="#myCarousel" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
     </div>
-    <a class="carousel-control left" href="#myCarousel" data-slide="prev">
-        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control right" href="#myCarousel" data-slide="next">
-        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-    </a>
 </div>
-
 <div class="container contentContainer" id="details">	
 
     <!--
@@ -173,13 +173,13 @@ require(SITE_ROOT.'/layout/header.php');
 
 </div>	
 -->
-    <div class="mainPitch" style="position:absolute; top:400px;">
+    <div class="mainPitch col-xs-6" style="position:absolute; width:50%;top:30%;left:20%;border-radius: 10px;">
         <div class="container panel">
             <div class="row">
                 <div class="col-xs-12" style="text-align:center;">
                     <div class="fixedcaption">
                         <h1>SHINE</h1>
-                        <h3>Sustainable Health Inspired by Nature and Evolution </h3>
+                        <h3>Sustainable Health Inspired by Nature and Evolution</h3>
                     </div>
                 </div>
             </div>
@@ -189,18 +189,18 @@ require(SITE_ROOT.'/layout/header.php');
 </div>
 </div>	
 -->
-<!--
+    <!--
 <div class="banner-wrapper">
-    <div class="banner-image"></div>
-    <div class ="absolute-wrapper">
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12">
-                    SOME VERY LONG TEXT IN AN ABSOLUTE DIV
-                </div>
-            </div>
-        </div>
-    </div>
+<div class="banner-image"></div>
+<div class ="absolute-wrapper">
+<div class="container">
+<div class="row">
+<div class="col-xs-12">
+SOME VERY LONG TEXT IN AN ABSOLUTE DIV
+</div>
+</div>
+</div>
+</div>
 </div>
 -->
 

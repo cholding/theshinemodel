@@ -19,7 +19,7 @@ if( !$user->is_logged_in() ){ header('Location: login.php'); }
 
 
 //define page title
-$title = 'Member Page';
+$title = 'SHINE Courses';
 
 //include header template
 require(SITE_ROOT.'/layout/header.php'); 
@@ -64,7 +64,7 @@ require(SITE_ROOT.'/layout/header.php');
                     <!--                    <div class="panel panel-default" style="width:400px; height:400px;margin:10px;">-->
 
 
-                    <img src="..\images\Wheretogo.png" width="1080" height="628" border="0" usemap="#map" />
+                    <img src="..\images\mmcourses.png" width="1080" height="619" border="0" usemap="#map" />
 
                     <map name="map">
                         <!-- #$-:Image map file created by GIMP Image Map plug-in -->
@@ -72,25 +72,12 @@ require(SITE_ROOT.'/layout/header.php');
                         <!-- #$-:Please do not edit lines starting with "#$" -->
                         <!-- #$VERSION:2.3 -->
                         <!-- #$AUTHOR:colin -->
-                        <area shape="rect" coords="156,125,331,252" alt="Nature" href="http://www.brainyquote.com/quotes/topics/topic_nature.html" target="_blank" />
-                        <area shape="rect" coords="125,402,300,503" alt="Play" href="https://www.ted.com/playlists/383/the_importance_of_play" target="_blank" />
-                        <area shape="rect" coords="779,178,955,267" alt="Online courses"  href="http://www.theshinemodel.com/login/courses.php" target="_blank" />
-                        <area shape="rect" coords="695,412,869,480" alt="TED" href="https://www.ted.com/" target="_blank" />
-                        <area shape="circle" coords="536,330,96" alt="Home" href="http://www.theshinemodel.com" target="_blank" />
+                        <area shape="rect" coords="164,512,237,528" alt="Mindmapping" href="http://www.udemy.com/document-your-thoughts-like-a-genius-mind-mapping-xmind/?couponCode=FRIENDSFAMILIY" target="_blank" />
+                        <area shape="rect" coords="559,543,701,559" alt="Biophilia"  nohref="nohref" />
+                        <area shape="rect" coords="100,183,207,223" alt="Who you are"  nohref="nohref" />
+                        <area shape="rect" coords="29,227,208,242" alt="Develop your filters"  nohref="nohref" />
+                        <area shape="rect" coords="404,65,753,105" alt="SHINE (Free)"  nohref="nohref" />
                     </map>
-
-                    <!--   
-
-<img src="..\images\Where1.png" width="1080" height="501" top="30" border="0" usemap="#map" />
-
-<map name="map">
-
-<area shape="rect" coords="51,7,272,174" alt="Nature" href="http://www.brainyquote.com/quotes/topics/topic_nature.html" target="_blank" />
-<area shape="rect" coords="736,376,962,466" alt="TED" href="https://www.ted.com/" target="_blank" />
-<area shape="rect" coords="846,75,1070,193" alt="Courses" href="https://www.udemy.com/document-your-thoughts-like-a-genius-mind-mapping-xmind/?couponCode=FRIENDSFAMILIY" target="_blank" />
-<area shape="rect" coords="7,362,230,496" alt="PLAY" href="https://www.ted.com/playlists/383/the_importance_of_play" target="_blank" />
-</map>
-</div>-->
                 </div>
             </div>
         </div>
